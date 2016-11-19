@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import model.Card.Value;
+
 public class Player {
 
 	private ArrayList<Card> m_hand;
@@ -26,14 +28,16 @@ public class Player {
 		m_hand.clear();
 	}
 
-	public ArrayList<Card> getPlayerHand() {
+	public ArrayList<Card> getHand() {
 		return m_hand;
 	}
 
 	public void showHand() {
-		for(int i= 0; i< 10; i++){
-			m_hand.get(0).getValue();
-			m_hand.get(0).show(true);
+		for (int i = 0; i < m_hand.size(); i++) {
+			Card c = m_hand.get(i);
+			if (c.getValue() == Value.Hidden) {
+				c.show(true);
+			}
 		}
 	}
 }
