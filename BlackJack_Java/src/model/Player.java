@@ -31,7 +31,9 @@ public class Player {
 	}
 
 	public void showHand() {
-		// TODO Auto-generated method stub
-		
+		for(int i= 0; i< 10; i++){
+			m_hand.get(0).getValue();
+			m_hand.get(0).show(true);
+		}
 	}
 }
