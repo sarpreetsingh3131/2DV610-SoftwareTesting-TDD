@@ -18,10 +18,12 @@ public class PlayerTest {
 	@Before
 	public void setUp() throws Exception {
 		mockedPlayerHand = mock(ArrayList.class);
-
+		when(mockedPlayerHand.size()).thenReturn(10);
+		
 		sut = new Player();
 		sut = sut.makeNewPalyer(mockedPlayerHand);
-
+		
+		addThisCardTenTimesToPlayerHand(mockedCard);
 	}
 
 	@Test
@@ -31,25 +33,20 @@ public class PlayerTest {
 
 	@Test
 	public void shouldAddCardInPlayerHandList() {
-		addThisCardTenTimesToPlayerHand(mockedCard);
 		verify(mockedPlayerHand, times(10)).add(mockedCard);
 	}
 
 	@Test
 	public void shouldClearPlayerHandList() {
-		addThisCardTenTimesToPlayerHand(mockedCard);
 		sut.clearHand();
 		verify(mockedPlayerHand, times(1)).clear();
 	}
 	
 	@Test
 	public void shouldReturnAListWith10Cards() {
-		addThisCardTenTimesToPlayerHand(mockedCard);
-		ArrayList<Card> list = sut.getPlayerHand();
-		assertEquals(10, list.size());
+		assertEquals(10, sut.getPlayerHand().size());
 	}
 	
-
 	private void addThisCardTenTimesToPlayerHand(Card card) {
 		for (int i = 0; i < 10; i++) {
 			sut.dealCard(card);
