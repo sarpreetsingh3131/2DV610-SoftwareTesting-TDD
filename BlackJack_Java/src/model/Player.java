@@ -29,4 +29,9 @@ public class Player {
 	public ArrayList<Card> getPlayerHand() {
 		return m_hand;
 	}
+
+	public void showHand() {
+		// TODO Auto-generated method stub
+		
+	}
 }

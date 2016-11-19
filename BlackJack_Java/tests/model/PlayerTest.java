@@ -5,24 +5,27 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import model.Card.Value;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class PlayerTest {
 
 	ArrayList<Card> mockedPlayerHand;
-	Player sut;
 	Card mockedCard;
+	Player sut;
+	
 
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception {
-		mockedPlayerHand = mock(ArrayList.class);
-		when(mockedPlayerHand.size()).thenReturn(10);
-		
 		sut = new Player();
-		sut = sut.makeNewPalyer(mockedPlayerHand);
+		mockedPlayerHand = mock(ArrayList.class);
+		mockedCard = mock(Card.class);
 		
+		when(mockedPlayerHand.size()).thenReturn(10);
+		sut = sut.makeNewPalyer(mockedPlayerHand);
 		addThisCardTenTimesToPlayerHand(mockedCard);
 	}
 
@@ -45,6 +48,19 @@ public class PlayerTest {
 	@Test
 	public void shouldReturnAListWith10Cards() {
 		assertEquals(10, sut.getPlayerHand().size());
+	}
+	
+	@Test
+	public void shouldUnhideTheCardsInTheList() {
+		when(mockedPlayerHand.get(any(Integer.class))).thenReturn(mockedCard);
+		when(mockedCard.getValue()).thenReturn(Value.Hidden);
+		doNothing().when(mockedCard).show(true);
+		
+		sut.showHand();
+		
+		verify(mockedCard, times(10)).getValue();
+		verify(mockedCard, times(10)).show(true);
+		
 	}
 	
 	private void addThisCardTenTimesToPlayerHand(Card card) {
