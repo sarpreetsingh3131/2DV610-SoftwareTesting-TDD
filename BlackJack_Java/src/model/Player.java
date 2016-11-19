@@ -7,6 +7,7 @@ import model.Card.Value;
 public class Player {
 
 	private ArrayList<Card> m_hand;
+	private int g_maxScore = 21;
 
 	public Player() {
 
@@ -42,7 +43,24 @@ public class Player {
 	}
 
 	public int calcScore() {
-		// TODO Auto-generated method stub
-		return 14;
+		int cardScores[] = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
+		int score = 0;
+
+		for (int i = 0; i < m_hand.size(); i++) {
+			Card c = m_hand.get(i);
+			if (c.getValue() != Card.Value.Hidden) {
+				score += cardScores[c.getValue().ordinal()];
+			}
+		}
+
+		if (score > g_maxScore) {
+			for (int i = 0; i < m_hand.size(); i++) {
+				Card c = m_hand.get(i);
+				if (c.getValue() == Card.Value.Ace && score > g_maxScore) {
+					score -= 10;
+				}
+			}
+		}
+		return score;
 	}
 }
