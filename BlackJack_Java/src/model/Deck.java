@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Deck {
 
+	private ArrayList<Card> m_cards;
+
 	public Deck() {
 
 	}
@@ -13,20 +15,16 @@ public class Deck {
 	}
 
 	private Deck(Card card) {
+		m_cards = new ArrayList<Card>();
+
 		for (int i = 0; i < Card.Color.Hidden.ordinal(); i++) {
 			for (int j = 0; j < Card.Value.Hidden.ordinal(); j++) {
-				card.makeNewCard(Card.Color.values()[i], Card.Value.values()[j]);
+				m_cards.add(card.makeNewCard(Card.Color.values()[i], Card.Value.values()[j]));
 			}
 		}
 	}
 
 	public ArrayList<Card> getCards() {
-		// TODO Auto-generated method stub
-		ArrayList<Card> m_cards = new ArrayList<Card>();
-		
-		for(int i = 0; i< 52; i++){
-			m_cards.add(null);
-		}
 		return m_cards;
 	}
 }
