@@ -31,16 +31,20 @@ public class PlayerTest {
 
 	@Test
 	public void shouldAddCardInPlayerHandList() {
-		sut.dealCard(mockedCard);
-		
-		verify(mockedPlayerHand, times(1)).add(mockedCard);
+		addThisCardTenTimesToPlayerHand(mockedCard);
+		verify(mockedPlayerHand, times(10)).add(mockedCard);
 	}
-	
+
 	@Test
 	public void shouldClearPlayerHandList() {
-		sut.dealCard(mockedCard);
+		addThisCardTenTimesToPlayerHand(mockedCard);
 		sut.clearHand();
-		
 		verify(mockedPlayerHand, times(1)).clear();
+	}
+
+	private void addThisCardTenTimesToPlayerHand(Card card) {
+		for (int i = 0; i < 10; i++) {
+			sut.dealCard(card);
+		}
 	}
 }
