@@ -10,26 +10,25 @@ import model.Card.Value;
 
 public class CardTest {
 
+	Card sut;
+
 	@Before
 	public void setUp() throws Exception {
+		sut = new Card();
+		sut = sut.makeNewCard(Color.Hearts, Value.Two);
 	}
 
 	@Test
 	public void shouldCreateANewCardAndReturnItWithHiddenColorAndValue() {
-		Card sut = new Card();
-		sut = sut.makeNewCard(Color.Hearts, Value.Two);
-		
 		assertEquals(Color.Hidden, sut.getColor());
 		assertEquals(Value.Hidden, sut.getValue());
 	}
 
 	@Test
 	public void shouldShowCardColorAndValueWhenShowIsTrue() {
-		Card sut = new Card();
-		sut = sut.makeNewCard(Color.Hearts, Value.Two);
 		sut.show(true);
-		
+
 		assertEquals(Color.Hearts, sut.getColor());
 		assertEquals(Value.Two, sut.getValue());
-	}	
+	}
 }
