@@ -35,4 +35,12 @@ public class PlayerTest {
 		
 		verify(mockedPlayerHand, times(1)).add(mockedCard);
 	}
+	
+	@Test
+	public void shouldClearPlayerHandList() {
+		sut.dealCard(mockedCard);
+		sut.clearHand();
+		
+		verify(mockedPlayerHand, times(1)).clear();
+	}
 }

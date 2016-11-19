@@ -21,4 +21,8 @@ public class Player {
 	public void dealCard(Card card) {
 		m_hand.add(card);
 	}
+
+	public void clearHand() {
+		// TODO Auto-generated method stub
+	}
 }
