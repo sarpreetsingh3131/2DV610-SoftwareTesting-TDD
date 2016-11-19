@@ -22,6 +22,11 @@ public class Deck {
 
 	public ArrayList<Card> getCards() {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Card> m_cards = new ArrayList<Card>();
+		
+		for(int i = 0; i< 52; i++){
+			m_cards.add(null);
+		}
+		return m_cards;
 	}
 }
