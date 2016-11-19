@@ -10,28 +10,27 @@ import static org.mockito.Mockito.*;
 
 public class PlayerTest {
 
+	ArrayList<Card> mockedPlayerHand;
+	Player sut;
+	Card mockedCard;
+
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception {
+		mockedPlayerHand = mock(ArrayList.class);
+
+		sut = new Player();
+		sut = sut.makeNewPalyer(mockedPlayerHand);
+
 	}
 
 	@Test
 	public void shouldCreateAndReturnANewPlayer() {
-		ArrayList<Card> mockedPlayerHand = mock(ArrayList.class);
-		
-		Player sut = new Player();
-		sut = sut.makeNewPalyer(mockedPlayerHand);
-		
 		assertNotNull(sut);
 	}
 
 	@Test
 	public void shouldAddCardInPlayerHandList() {
-		ArrayList<Card> mockedPlayerHand = mock(ArrayList.class);
-		Card mockedCard = mock(Card.class);
-		
-		Player sut = new Player();
-		sut = sut.makeNewPalyer(mockedPlayerHand);
-		
 		sut.dealCard(mockedCard);
 		
 		verify(mockedPlayerHand, times(1)).add(mockedCard);
