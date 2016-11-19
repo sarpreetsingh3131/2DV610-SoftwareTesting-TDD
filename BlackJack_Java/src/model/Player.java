@@ -28,6 +28,9 @@ public class Player {
 
 	public ArrayList<Card> getPlayerHand() {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Card> list = new ArrayList<>();
+		for(int i = 0; i< 10; i++)
+		list.add(null);
+		return list;
 	}
 }
