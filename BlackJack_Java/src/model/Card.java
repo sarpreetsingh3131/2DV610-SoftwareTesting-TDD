@@ -25,6 +25,11 @@ public class Card {
 		return Value.Hidden;
 	}
 	
+	public void show(boolean a_show) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	private Card(Color a_color, Value a_value){
 		m_color = a_color;
 		m_value = a_value;

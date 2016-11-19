@@ -23,4 +23,13 @@ public class CardTest {
 		assertEquals(Value.Hidden, sut.getValue());
 	}
 
+	@Test
+	public void shouldShowCardColorAndValueWhenShowIsTrue() {
+		Card sut = new Card();
+		sut = sut.makeNewCard(Color.Hearts, Value.Two);
+		sut.show(true);
+		
+		assertEquals(Color.Hearts, sut.getColor());
+		assertEquals(Value.Ace, sut.getValue());
+	}	
 }
