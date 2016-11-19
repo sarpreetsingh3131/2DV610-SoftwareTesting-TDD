@@ -43,6 +43,6 @@ public class Player {
 
 	public int calcScore() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 14;
 	}
 }
