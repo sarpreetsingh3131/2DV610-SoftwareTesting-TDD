@@ -44,4 +44,12 @@ public class DeckTest {
 
 		assertEquals(52, list.size());
 	}
+	
+	@Test
+	public void shouldReturnAndRemoveFirstCardFromTheList() {
+		Card c = sut.getCard();
+		
+		assertNotNull(c);
+		assertEquals(51, sut.getCards().size());
+	}
 }

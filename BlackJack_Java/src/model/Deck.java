@@ -27,4 +27,9 @@ public class Deck {
 	public ArrayList<Card> getCards() {
 		return m_cards;
 	}
+
+	public Card getCard() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
