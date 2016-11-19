@@ -19,7 +19,6 @@ public class Player {
 	}
 
 	public void dealCard(Card card) {
-		// TODO Auto-generated method stub
-		
+		m_hand.add(card);
 	}
 }
