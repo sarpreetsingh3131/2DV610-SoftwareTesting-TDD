@@ -30,6 +30,7 @@ public class Deck {
 
 	public Card getCard() {
 		// TODO Auto-generated method stub
-		return null;
+		m_cards.remove(0);
+		return new Card();
 	}
 }
