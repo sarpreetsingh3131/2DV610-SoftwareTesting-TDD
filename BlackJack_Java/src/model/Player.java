@@ -17,4 +17,9 @@ public class Player {
 	private Player(ArrayList<Card> a_hand) {
 		m_hand = a_hand;
 	}
+
+	public void dealCard(Card card) {
+		// TODO Auto-generated method stub
+		
+	}
 }

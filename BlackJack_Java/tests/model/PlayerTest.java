@@ -24,4 +24,16 @@ public class PlayerTest {
 		assertNotNull(sut);
 	}
 
+	@Test
+	public void shouldAddCardInPlayerHandList() {
+		ArrayList<Card> mockedPlayerHand = mock(ArrayList.class);
+		Card mockedCard = mock(Card.class);
+		
+		Player sut = new Player();
+		sut = sut.makeNewPalyer(mockedPlayerHand);
+		
+		sut.dealCard(mockedCard);
+		
+		verify(mockedPlayerHand, times(1)).add(mockedCard);
+	}
 }
