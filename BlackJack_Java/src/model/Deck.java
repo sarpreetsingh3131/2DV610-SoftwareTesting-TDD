@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Deck {
 
 	public Deck() {
@@ -16,5 +18,10 @@ public class Deck {
 				card.makeNewCard(Card.Color.values()[i], Card.Value.values()[j]);
 			}
 		}
+	}
+
+	public ArrayList<Card> getCards() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
