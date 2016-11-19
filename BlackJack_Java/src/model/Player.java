@@ -25,4 +25,9 @@ public class Player {
 	public void clearHand() {
 		m_hand.clear();
 	}
+
+	public ArrayList<Card> getPlayerHand() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

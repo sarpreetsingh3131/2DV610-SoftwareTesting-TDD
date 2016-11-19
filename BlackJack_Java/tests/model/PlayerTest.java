@@ -41,6 +41,14 @@ public class PlayerTest {
 		sut.clearHand();
 		verify(mockedPlayerHand, times(1)).clear();
 	}
+	
+	@Test
+	public void shouldReturnAListWith10Cards() {
+		addThisCardTenTimesToPlayerHand(mockedCard);
+		ArrayList<Card> list = sut.getPlayerHand();
+		assertEquals(10, list.size());
+	}
+	
 
 	private void addThisCardTenTimesToPlayerHand(Card card) {
 		for (int i = 0; i < 10; i++) {
