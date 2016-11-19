@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 
@@ -22,6 +23,7 @@ public class Deck {
 				m_cards.add(card.makeNewCard(Card.Color.values()[i], Card.Value.values()[j]));
 			}
 		}
+		shuffle();
 	}
 
 	public ArrayList<Card> getCards() {
@@ -29,8 +31,12 @@ public class Deck {
 	}
 
 	public Card getCard() {
-		// TODO Auto-generated method stub
+		Card c = m_cards.get(0);
 		m_cards.remove(0);
-		return new Card();
+		return c;
+	}
+
+	private void shuffle() {
+		Collections.shuffle(m_cards);
 	}
 }

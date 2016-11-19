@@ -5,9 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
-
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,16 +37,12 @@ public class DeckTest {
 
 	@Test
 	public void shouldReturnAListWith52Cards() {
-		ArrayList<Card> list = sut.getCards();
-
-		assertEquals(52, list.size());
+		assertEquals(52, sut.getCards().size());
 	}
 	
 	@Test
 	public void shouldReturnAndRemoveFirstCardFromTheList() {
-		Card c = sut.getCard();
-		
-		assertNotNull(c);
+		assertNotNull(sut.getCard());
 		assertEquals(51, sut.getCards().size());
 	}
 }
