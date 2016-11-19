@@ -30,6 +30,6 @@ public class CardTest {
 		sut.show(true);
 		
 		assertEquals(Color.Hearts, sut.getColor());
-		assertEquals(Value.Ace, sut.getValue());
+		assertEquals(Value.Two, sut.getValue());
 	}	
 }
