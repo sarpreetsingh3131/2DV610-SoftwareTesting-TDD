@@ -40,4 +40,9 @@ public class Player {
 			}
 		}
 	}
+
+	public int calcScore() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

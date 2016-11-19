@@ -57,7 +57,14 @@ public class PlayerTest {
 		
 		verify(mockedCard, times(times)).getValue();
 		verify(mockedCard, times(times)).show(true);
+	}
+	
+	@Test
+	public void shouldCalculateAndReturnScore14() {
+		when(mockedCard.getValue()).thenReturn(Value.Ace);
 		
+		int score = sut.calcScore();
+		assertEquals(14, score);
 	}
 	
 	private void addThisCardToPlayerHand(Card card, int times) {
