@@ -7,23 +7,27 @@ import org.junit.Test;
 
 public class DealerTest {
 
+	Dealer sut;
+	Card mockCard;
+	Player mockPlayer;
+	Deck mockDeck;
+
 	@Before
 	public void setUp() throws Exception {
+		mockCard = mock(Card.class);
+		mockPlayer = mock(Player.class);
+		mockDeck = mock(Deck.class);
+		
+		 sut = new Dealer(mockDeck);
 	}
 
 	@Test
 	public void shouldDealANewCardToPlayer() {
-		Card mockCard = mock(Card.class);
-		Player mockPlayer = mock(Player.class);
-		Deck mockDeck = mock(Deck.class);
-		Dealer sut = new Dealer(mockDeck);
-		
 		boolean isVisible = true;
-		
 		when(mockDeck.getCard()).thenReturn(mockCard);
 		doNothing().when(mockCard).show(isVisible);
 		doNothing().when(mockPlayer).dealCard(mockCard);
-		
+
 		sut.dealCardTo(mockPlayer, isVisible);
 		
 		verify(mockDeck, times(1)).getCard();
