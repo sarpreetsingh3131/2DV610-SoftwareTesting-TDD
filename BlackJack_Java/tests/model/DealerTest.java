@@ -5,12 +5,16 @@ import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import rules.DealerWinRule;
+import rules.RulesFactory;
+
 public class DealerTest {
 
 	Dealer sut;
 	Card mockCard;
 	Player mockPlayer;
 	Deck mockDeck;
+	final int maxScore = 21;
 
 	@Before
 	public void setUp() throws Exception {
@@ -33,5 +37,20 @@ public class DealerTest {
 		verify(mockDeck, times(1)).getCard();
 		verify(mockCard, times(1)).show(isVisible);
 		verify(mockPlayer, times(1)).dealCard(mockCard);
+	}
+	
+	@Test
+	public void dealerShouldBeTheWinner() {
+		RulesFactory mockFactory = mock(RulesFactory.class);
+		DealerWinRule mockWinRule = mock(DealerWinRule.class);
+		when(mockFactory.getWinRule()).thenReturn(mockWinRule);
+		
+		Dealer sut = new Dealer(mockFactory);
+		
+		when(mockWinRule.isDealerWinner(mockPlayer, sut, maxScore)).thenReturn(true);
+		
+		assertTrue(sut.isDealerWinner(mockPlayer));
+		
+		verify(mockWinRule, times(1)).isDealerWinner(mockPlayer, sut, maxScore);
 	}
 }
