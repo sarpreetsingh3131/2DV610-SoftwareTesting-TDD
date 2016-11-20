@@ -17,4 +17,9 @@ public class RulesFactoryTest {
 		assertNotNull(sut.getHitRule());
 	}
 
+	@Test
+	public void shouldReturnAWinRule() {
+		RulesFactory sut = new RulesFactory();
+		assertNotNull(sut.getWinRule());
+	}
 }
