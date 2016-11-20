@@ -10,6 +10,6 @@ import model.PlayerTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ CardTest.class, DeckTest.class, PlayerTest.class })
-public class modelSuit {
+public class ModelSuit {
 
 }

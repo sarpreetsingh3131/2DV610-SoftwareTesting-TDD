@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ modelSuit.class, rulesSuit.class })
+@SuiteClasses({ ModelSuit.class, RulesSuit.class })
 public class CompleteSystemSuit {
 
 }
