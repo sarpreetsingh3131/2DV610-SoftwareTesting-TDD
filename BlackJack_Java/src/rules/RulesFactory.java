@@ -10,8 +10,7 @@ public class RulesFactory {
 		return new DealerWinRule();
 	}
 
-	public Object getNewGameRule() {
-		// TODO Auto-generated method stub
+	public AmericanNewGameRule getNewGameRule() {
 		return new AmericanNewGameRule();
 	}
 }

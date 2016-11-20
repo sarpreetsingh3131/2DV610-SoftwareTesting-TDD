@@ -1,7 +1,6 @@
 package rules;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,6 +27,7 @@ public class RulesFactoryTest {
 	
 	@Test
 	public void shouldReturnANewGameRule() {
-		assertNotNull(sut.getNewGameRule());
+		AmericanNewGameRule newGameRule = sut.getNewGameRule();
+		assertNotNull(newGameRule);
 	}
 }
