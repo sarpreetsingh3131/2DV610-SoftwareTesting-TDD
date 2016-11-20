@@ -12,4 +12,9 @@ public class DealerWinRule {
 		return dealer.calcScore() < maxScore;
 	}
 
+	public boolean isDealerWinner(Player a_player, Player a_dealer, int g_maxScore) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

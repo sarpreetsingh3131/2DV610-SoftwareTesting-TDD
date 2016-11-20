@@ -34,4 +34,10 @@ public class DealerWinRuleTest {
 		when(mockDealer.calcScore()).thenReturn(22);
 		assertFalse(sut.isDealerWinner(mockDealer, maxScore));
 	}
+	
+	@Test
+	public void dealerShouldWinWhenPlayerScoreIsAboveMax() {
+		when(mockPlayer.calcScore()).thenReturn(22);
+		assertTrue(sut.isDealerWinner(mockPlayer, mockDealer, maxScore));
+	}
 }
