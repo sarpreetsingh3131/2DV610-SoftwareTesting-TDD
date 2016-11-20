@@ -25,14 +25,13 @@ public class DealerWinRuleTest {
 	public void dealerShouldBeWinnerWhenScoresAreSame() {
 		when(mockPlayer.calcScore()).thenReturn(21);
 		when(mockDealer.calcScore()).thenReturn(21);
-	
-		assertTrue(sut.isDealerWinner(mockPlayer, mockDealer));
+		assertTrue(sut.isDealerWinner(mockPlayer, mockDealer, maxScore));
 	}
 
 	@Test
 	public void dealerShouldLooseWhenScoreIsAboveMax() {
 		when(mockDealer.calcScore()).thenReturn(22);
-		assertFalse(sut.isDealerWinner(mockDealer, maxScore));
+		assertFalse(sut.isDealerWinner(mockPlayer, mockDealer, maxScore));
 	}
 	
 	@Test

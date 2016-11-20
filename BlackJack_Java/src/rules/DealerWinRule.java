@@ -4,17 +4,13 @@ import model.Player;
 
 public class DealerWinRule {
 
-	public boolean isDealerWinner(Player player, Player dealer) {
-		return dealer.calcScore() >= player.calcScore();
-	}
-
-	public boolean isDealerWinner(Player dealer, int maxScore) {
-		return dealer.calcScore() < maxScore;
-	}
-
 	public boolean isDealerWinner(Player a_player, Player a_dealer, int g_maxScore) {
-		// TODO Auto-generated method stub
-		return true;
+		if (a_player.calcScore() > g_maxScore) {
+			return true;
+		} else if (a_dealer.calcScore() > g_maxScore) {
+			return false;
+		}
+		return a_dealer.calcScore() >= a_player.calcScore();
 	}
 
 }
