@@ -11,6 +11,7 @@ public class Dealer extends Player{
 	public Dealer(Deck deck, RulesFactory a_factory) {
 		m_deck = deck;
 		m_winRule = a_factory.getWinRule();
+		a_factory.getHitRule().doHit(this);
 	}
 
 	public void dealCardTo(Player player, boolean show) {
@@ -25,6 +26,6 @@ public class Dealer extends Player{
 
 	public boolean isGameOver() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 }
