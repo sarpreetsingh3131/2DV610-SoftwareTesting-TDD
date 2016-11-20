@@ -34,7 +34,10 @@ public class Dealer extends Player {
 	}
 
 	public boolean hit(Player a_player) {
-		// TODO Auto-generated method stub
+		if (a_player.calcScore() < g_maxScore && !isGameOver()) {
+			dealCardTo(a_player, true);
+			return true;
+		}
 		return false;
 	}
 }
