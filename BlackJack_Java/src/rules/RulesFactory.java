@@ -6,8 +6,7 @@ public class RulesFactory {
 		return new BasicHitRule();
 	}
 
-	public Object getWinRule() {
-		// TODO Auto-generated method stub
-		return this;
+	public DealerWinRule getWinRule() {
+		return new DealerWinRule();
 	}
 }

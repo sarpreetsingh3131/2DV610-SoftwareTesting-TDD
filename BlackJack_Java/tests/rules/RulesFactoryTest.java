@@ -7,19 +7,22 @@ import org.junit.Test;
 
 public class RulesFactoryTest {
 
+	RulesFactory sut;
+
 	@Before
 	public void setUp() throws Exception {
+		sut = new RulesFactory();
 	}
 
 	@Test
 	public void shouldReturnAHitRule() {
-		RulesFactory sut = new RulesFactory();
-		assertNotNull(sut.getHitRule());
+		BasicHitRule hitRule = sut.getHitRule(); 
+		assertNotNull(hitRule);
 	}
 
 	@Test
 	public void shouldReturnAWinRule() {
-		RulesFactory sut = new RulesFactory();
-		assertNotNull(sut.getWinRule());
+		DealerWinRule winRule = sut.getWinRule();
+		assertNotNull(winRule);
 	}
 }
