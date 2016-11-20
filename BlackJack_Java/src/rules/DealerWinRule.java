@@ -8,9 +8,8 @@ public class DealerWinRule {
 		return dealer.calcScore() >= player.calcScore();
 	}
 
-	public boolean isDealerWinner(Player mockDealer, int maxScore) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isDealerWinner(Player dealer, int maxScore) {
+		return dealer.calcScore() < maxScore;
 	}
 
 }

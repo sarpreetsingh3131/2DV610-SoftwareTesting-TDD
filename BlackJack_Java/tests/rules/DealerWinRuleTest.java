@@ -3,47 +3,35 @@ package rules;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import model.Player;
 
 public class DealerWinRuleTest {
 
+	DealerWinRule sut;
+	Player mockPlayer;
+	Player mockDealer;
+	final int maxScore = 21;
+
 	@Before
 	public void setUp() throws Exception {
+		sut = new DealerWinRule();
+		mockPlayer = mock(Player.class);
+		mockDealer = mock(Player.class);
 	}
 
 	@Test
 	public void dealerShouldBeWinnerWhenScoresAreSame() {
-		Player mockPlayer = mock(Player.class);
-		Player mockDealer = mock(Player.class);
-		
 		when(mockPlayer.calcScore()).thenReturn(21);
 		when(mockDealer.calcScore()).thenReturn(21);
-
-		
-		DealerWinRule sut = new DealerWinRule();
-		boolean actual = sut.isDealerWinner(mockPlayer, mockDealer);
-		
-		assertTrue(actual);
-		
-	}
 	
+		assertTrue(sut.isDealerWinner(mockPlayer, mockDealer));
+	}
+
 	@Test
 	public void dealerShouldLooseWhenScoreIsAboveMax() {
-		Player mockDealer = mock(Player.class);
-		
 		when(mockDealer.calcScore()).thenReturn(22);
-
-		
-		DealerWinRule sut = new DealerWinRule();
-		
-		int maxScore = 21;
-		boolean actual = sut.isDealerWinner(mockDealer, maxScore);
-		
-		assertFalse(actual);
+		assertFalse(sut.isDealerWinner(mockDealer, maxScore));
 	}
-
 }
