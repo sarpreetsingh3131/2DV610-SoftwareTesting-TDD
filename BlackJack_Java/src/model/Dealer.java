@@ -8,11 +8,8 @@ public class Dealer extends Player{
 	private Deck m_deck;
 	private DealerWinRule m_winRule;
 	
-	public Dealer(Deck deck) {
+	public Dealer(Deck deck, RulesFactory a_factory) {
 		m_deck = deck;
-	}
-
-	public Dealer(RulesFactory a_factory) {
 		m_winRule = a_factory.getWinRule();
 	}
 
