@@ -32,4 +32,9 @@ public class Dealer extends Player {
 		}
 		return false;
 	}
+
+	public boolean hit(Player a_player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

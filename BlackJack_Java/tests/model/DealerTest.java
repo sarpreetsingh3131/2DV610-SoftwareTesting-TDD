@@ -64,4 +64,20 @@ public class DealerTest {
 		assertTrue(sut.isGameOver());
 		verify(mockHitRule, times(1)).doHit(sut);
 	}
+	
+	
+	@Test
+	public void playerShouldHitWhenScoreIsBelowLimitAndGameIsNotOver() {
+		when(mockPlayer.calcScore()).thenReturn(11);
+		when(mockHitRule.doHit(sut)).thenReturn(true);
+		when(mockDeck.getCard()).thenReturn(mockCard);
+		doNothing().when(mockCard).show(true);
+		doNothing().when(mockPlayer).dealCard(mockCard);
+		
+		assertTrue(sut.hit(mockPlayer));
+		verify(mockPlayer, times(1)).calcScore();
+		verify(mockDeck, times(1)).getCard();
+		verify(mockCard, times(1)).show(true);
+		verify(mockPlayer, times(1)).dealCard(mockCard);
+	}
 }
