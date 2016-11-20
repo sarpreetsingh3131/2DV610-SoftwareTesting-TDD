@@ -22,11 +22,10 @@ public class DealerWinRuleTest {
 		
 		when(mockPlayer.calcScore()).thenReturn(21);
 		when(mockDealer.calcScore()).thenReturn(21);
-	
-		final int maxScore = 21;
+
 		
 		DealerWinRule sut = new DealerWinRule();
-		boolean actual = sut.isDealerWinner(mockPlayer, mockDealer, maxScore);
+		boolean actual = sut.isDealerWinner(mockPlayer, mockDealer);
 		
 		assertTrue(actual);
 		
