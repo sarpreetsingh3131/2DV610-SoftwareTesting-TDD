@@ -12,6 +12,6 @@ public class RulesFactory {
 
 	public Object getNewGameRule() {
 		// TODO Auto-generated method stub
-		return null;
+		return new AmericanNewGameRule();
 	}
 }
