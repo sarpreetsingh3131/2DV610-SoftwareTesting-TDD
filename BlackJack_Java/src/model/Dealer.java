@@ -22,4 +22,9 @@ public class Dealer extends Player{
 	public boolean isDealerWinner(Player a_player) {
 		return m_winRule.isDealerWinner(a_player, this, g_maxScore);
 	}
+
+	public boolean isGameOver() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
