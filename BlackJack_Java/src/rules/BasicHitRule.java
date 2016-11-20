@@ -4,9 +4,10 @@ import model.Player;
 
 public class BasicHitRule {
 
+	private final int g_hitLimit = 17;
+
 	public boolean doHit(Player a_dealer) {
-		// TODO Auto-generated method stub
-		return true;
+		return a_dealer.calcScore() < g_hitLimit;
 	}
 
 }
