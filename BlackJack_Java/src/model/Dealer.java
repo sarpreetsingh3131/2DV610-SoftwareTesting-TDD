@@ -2,11 +2,15 @@ package model;
 
 public class Dealer extends Player{
 
+	private Deck m_deck;
+	
 	public Dealer(Deck deck) {
-		// TODO Auto-generated constructor stub
+		m_deck = deck;
 	}
 
 	public void dealCardTo(Player player, boolean show) {
-		// TODO Auto-generated method stub
+		Card c = m_deck.getCard();
+		c.show(show);
+		player.dealCard(c);
 	}
 }
