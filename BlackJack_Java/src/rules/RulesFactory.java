@@ -9,4 +9,9 @@ public class RulesFactory {
 	public DealerWinRule getWinRule() {
 		return new DealerWinRule();
 	}
+
+	public Object getNewGameRule() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

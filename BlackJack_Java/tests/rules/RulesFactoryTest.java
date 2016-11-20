@@ -25,4 +25,9 @@ public class RulesFactoryTest {
 		DealerWinRule winRule = sut.getWinRule();
 		assertNotNull(winRule);
 	}
+	
+	@Test
+	public void shouldReturnANewGameRule() {
+		assertNotNull(sut.getNewGameRule());
+	}
 }
