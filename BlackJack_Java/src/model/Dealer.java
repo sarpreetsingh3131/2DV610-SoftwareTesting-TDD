@@ -1,17 +1,19 @@
 package model;
 
+import rules.BasicHitRule;
 import rules.DealerWinRule;
 import rules.RulesFactory;
 
-public class Dealer extends Player{
+public class Dealer extends Player {
 
 	private Deck m_deck;
 	private DealerWinRule m_winRule;
-	
+	private BasicHitRule m_hitRule;
+
 	public Dealer(Deck deck, RulesFactory a_factory) {
 		m_deck = deck;
 		m_winRule = a_factory.getWinRule();
-		a_factory.getHitRule().doHit(this);
+		m_hitRule = a_factory.getHitRule();
 	}
 
 	public void dealCardTo(Player player, boolean show) {
@@ -25,7 +27,9 @@ public class Dealer extends Player{
 	}
 
 	public boolean isGameOver() {
-		// TODO Auto-generated method stub
-		return true;
+		if (m_hitRule.doHit(this) != true) {
+			return true;
+		}
+		return false;
 	}
 }
