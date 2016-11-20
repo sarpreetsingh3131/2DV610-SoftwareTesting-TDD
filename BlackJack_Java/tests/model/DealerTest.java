@@ -36,20 +36,6 @@ public class DealerTest {
 	}
 
 	@Test
-	public void shouldDealANewCardToPlayer() {
-		boolean isVisible = true;
-		when(mockDeck.getCard()).thenReturn(mockCard);
-		doNothing().when(mockCard).show(isVisible);
-		doNothing().when(mockPlayer).dealCard(mockCard);
-
-		sut.dealCardTo(mockPlayer, isVisible);
-
-		verify(mockDeck, times(1)).getCard();
-		verify(mockCard, times(1)).show(isVisible);
-		verify(mockPlayer, times(1)).dealCard(mockCard);
-	}
-
-	@Test
 	public void dealerShouldBeTheWinner() {
 		when(mockWinRule.isDealerWinner(mockPlayer, sut, maxScore)).thenReturn(true);
 
@@ -65,19 +51,20 @@ public class DealerTest {
 		verify(mockHitRule, times(1)).doHit(sut);
 	}
 	
-	
+
 	@Test
-	public void playerShouldHitWhenScoreIsBelowLimitAndGameIsNotOver() {
+	public void playerShouldHitAndDealANewCardWhenScoreIsBelowLimitAndGameIsNotOver() {
 		when(mockPlayer.calcScore()).thenReturn(11);
 		when(mockHitRule.doHit(sut)).thenReturn(true);
 		when(mockDeck.getCard()).thenReturn(mockCard);
 		doNothing().when(mockCard).show(true);
 		doNothing().when(mockPlayer).dealCard(mockCard);
-		
-		assertTrue(sut.hit(mockPlayer));
+
+		assertTrue(sut.hit(mockPlayer, true));
 		verify(mockPlayer, times(1)).calcScore();
 		verify(mockDeck, times(1)).getCard();
 		verify(mockCard, times(1)).show(true);
 		verify(mockPlayer, times(1)).dealCard(mockCard);
+		
 	}
 }

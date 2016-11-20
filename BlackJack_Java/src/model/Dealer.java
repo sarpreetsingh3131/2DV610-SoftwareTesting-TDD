@@ -16,12 +16,6 @@ public class Dealer extends Player {
 		m_hitRule = a_factory.getHitRule();
 	}
 
-	public void dealCardTo(Player player, boolean show) {
-		Card c = m_deck.getCard();
-		c.show(show);
-		player.dealCard(c);
-	}
-
 	public boolean isDealerWinner(Player a_player) {
 		return m_winRule.isDealerWinner(a_player, this, g_maxScore);
 	}
@@ -33,9 +27,11 @@ public class Dealer extends Player {
 		return false;
 	}
 
-	public boolean hit(Player a_player) {
+	public boolean hit(Player a_player, boolean show) {
 		if (a_player.calcScore() < g_maxScore && !isGameOver()) {
-			dealCardTo(a_player, true);
+			Card c = m_deck.getCard();
+			c.show(show);
+			a_player.dealCard(c);
 			return true;
 		}
 		return false;
