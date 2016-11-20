@@ -7,7 +7,7 @@ import model.Card.Value;
 public class Player {
 
 	private ArrayList<Card> m_hand;
-	private int g_maxScore = 21;
+	protected int g_maxScore = 21;
 
 	public Player() {
 
