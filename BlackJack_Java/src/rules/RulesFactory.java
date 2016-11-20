@@ -8,6 +8,6 @@ public class RulesFactory {
 
 	public Object getWinRule() {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 }
