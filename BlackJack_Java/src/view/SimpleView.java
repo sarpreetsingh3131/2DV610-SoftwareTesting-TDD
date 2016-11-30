@@ -14,4 +14,7 @@ public class SimpleView {
 		return printer;
 	}
 
+	public void displayWelcomeMessage() {
+		// TODO Auto-generated method stub
+	}
 }
