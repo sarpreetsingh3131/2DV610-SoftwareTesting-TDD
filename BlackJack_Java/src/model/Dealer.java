@@ -39,6 +39,8 @@ public class Dealer extends Player {
 
 	public boolean newGame(Player player) {
 		if (isGameOver()) {
+			clearHand();
+			player.clearHand();
 			return true;
 		}
 		return false;
