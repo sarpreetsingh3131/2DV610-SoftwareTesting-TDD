@@ -27,4 +27,10 @@ public class GameTest {
 		sut = sut.makeNewGame(mockPlayer, mockDealer);
 		assertNotNull(sut.getDealer());
 	}
+	
+	@Test
+	public void shouldReturnPlayer() {
+		sut = sut.makeNewGame(mockPlayer, mockDealer);
+		assertNotNull(sut.getPlayer());
+	}
 }
