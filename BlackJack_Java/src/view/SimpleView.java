@@ -13,7 +13,7 @@ public class SimpleView {
 
 	public Object getPrinter() {
 		// TODO Auto-generated method stub
-		return null;
+		return printer;
 	}
 
 }
