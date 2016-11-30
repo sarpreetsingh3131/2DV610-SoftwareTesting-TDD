@@ -31,4 +31,14 @@ public class GameTest {
 	public void shouldReturnPlayer() {
 		assertNotNull(sut.getPlayer());
 	}
+	
+	@Test
+	public void shouldReturnFalseBecauseGameIsOver() {
+		Game spy = spy(sut);
+		when(spy.getDealer()).thenReturn(mockDealer);
+		when(mockDealer.isGameOver()).thenReturn(false);
+		
+		assertFalse(sut.isGameOver());
+		verify(mockDealer, times(1)).isGameOver();
+	}
 }

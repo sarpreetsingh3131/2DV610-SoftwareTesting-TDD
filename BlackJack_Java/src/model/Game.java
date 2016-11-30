@@ -26,4 +26,10 @@ public class Game {
 		return m_player;
 	}
 
+	public boolean isGameOver() {
+		// TODO Auto-generated method stub
+		
+		return false;
+	}
+
 }
