@@ -40,6 +40,7 @@ public class Game {
 
 	public boolean hit() {
 		// TODO Auto-generated method stub
-		return false;
+		getDealer().hit(getPlayer(), true);
+		return true;
 	}
 }
