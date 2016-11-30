@@ -106,7 +106,6 @@ public class DealerTest {
 	@Test
 	public void shouldStandReturnTrueBecauseDeckIsNotNull() {
 		Dealer spy = spy(sut);
-		when(spy.getDealerDeck()).thenReturn(mockDeck);
 		doNothing().when((Player) spy).showHand();
 		when(mockHitRule.doHit(spy)).thenReturn(false);
 		

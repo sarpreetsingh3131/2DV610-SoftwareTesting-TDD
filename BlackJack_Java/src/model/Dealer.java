@@ -57,7 +57,9 @@ public class Dealer extends Player {
 	public boolean stand(Player player) {
 		if (getDealerDeck() != null) {
 			showHand();
-			m_hitRule.doHit(this);
+			while (m_hitRule.doHit(this)) {
+				hit(this, true);
+			}
 			return true;
 		}
 		return false;
