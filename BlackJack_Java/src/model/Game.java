@@ -36,6 +36,7 @@ public class Game {
 
 	public boolean newGame() {
 		// TODO Auto-generated method stub
-		return false;
+		getDealer().newGame(getPlayer());
+		return true;
 	}
 }
