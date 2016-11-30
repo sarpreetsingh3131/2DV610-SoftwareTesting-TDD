@@ -49,4 +49,8 @@ public class Dealer extends Player {
 		}
 		return false;
 	}
+	
+	public Deck getDealerDeck(){
+		return null;
+	}
 }

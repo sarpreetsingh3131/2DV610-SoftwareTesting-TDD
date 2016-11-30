@@ -89,6 +89,10 @@ public class DealerTest {
 		assertFalse(sut.hit(mockPlayer, true));
 	}
 	
+	@Test
+	public void shouldReturnDealerDeck() {
+		assertNotNull(sut.getDealerDeck());
+	}
 	
 	private void mockDependencies() {
 		mockCard = mock(Card.class);
