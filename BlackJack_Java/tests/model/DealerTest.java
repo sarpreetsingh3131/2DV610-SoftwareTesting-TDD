@@ -21,13 +21,7 @@ public class DealerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		mockCard = mock(Card.class);
-		mockPlayer = mock(Player.class);
-		mockDeck = mock(Deck.class);
-		mockFactory = mock(RulesFactory.class);
-		mockWinRule = mock(DealerWinRule.class);
-		mockHitRule = mock(BasicHitRule.class);
-
+		mockDependencies();
 		when(mockFactory.getWinRule()).thenReturn(mockWinRule);
 		when(mockFactory.getHitRule()).thenReturn(mockHitRule);
 
@@ -49,29 +43,34 @@ public class DealerTest {
 		assertTrue(sut.isGameOver());
 		verify(mockHitRule, times(1)).doHit(sut);
 	}
-	
 
 	@Test
 	public void playerShouldHitAndDealANewCardWhenScoreIsBelowLimitAndGameIsNotOver() {
 		when(mockPlayer.calcScore()).thenReturn(11);
 		when(mockHitRule.doHit(sut)).thenReturn(true);
 		when(mockDeck.getCard()).thenReturn(mockCard);
-		doNothing().when(mockCard).show(true);
-		doNothing().when(mockPlayer).dealCard(mockCard);
 
 		assertTrue(sut.hit(mockPlayer, true));
 		verify(mockPlayer, times(1)).calcScore();
 		verify(mockDeck, times(1)).getCard();
 		verify(mockCard, times(1)).show(true);
-		verify(mockPlayer, times(1)).dealCard(mockCard);	
+		verify(mockPlayer, times(1)).dealCard(mockCard);
 	}
-	
+
 	@Test
 	public void shouldReturnFalseAndNotPlayNewGameBecauseGameIsNotOver() {
 		when(mockHitRule.doHit(sut)).thenReturn(true);
-		boolean actual = sut.newGame(mockPlayer);
-		
-		assertFalse(actual);
+
+		assertFalse(sut.newGame(mockPlayer));
 		verify(mockHitRule, times(1)).doHit(sut);
+	}
+
+	private void mockDependencies() {
+		mockCard = mock(Card.class);
+		mockPlayer = mock(Player.class);
+		mockDeck = mock(Deck.class);
+		mockFactory = mock(RulesFactory.class);
+		mockWinRule = mock(DealerWinRule.class);
+		mockHitRule = mock(BasicHitRule.class);
 	}
 }

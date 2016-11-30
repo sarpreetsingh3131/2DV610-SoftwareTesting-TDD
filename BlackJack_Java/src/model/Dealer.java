@@ -38,8 +38,9 @@ public class Dealer extends Player {
 	}
 
 	public boolean newGame(Player player) {
-		// TODO Auto-generated method stub
-		m_hitRule.doHit(this);
+		if (isGameOver()) {
+			return true;
+		}
 		return false;
 	}
 }
