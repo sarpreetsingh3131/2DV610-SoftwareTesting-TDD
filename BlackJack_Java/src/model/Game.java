@@ -51,8 +51,6 @@ public class Game {
 	}
 
 	public int getPlayerScore() {
-		// TODO Auto-generated method stub
-		getPlayer().calcScore();
-		return 15;
+		return getPlayer().calcScore();
 	}
 }
