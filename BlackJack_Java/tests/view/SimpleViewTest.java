@@ -56,5 +56,18 @@ public class SimpleViewTest {
 		verify(mockPrinter, times(5)).println("Ace of Clubs");
 		verify(mockPrinter, times(1)).println("Score: " + score + "\n");
 	}
+	
+	@Test
+	public void shouldDisplayDealerHand() {
+		ArrayList<Card> spyList = spy(new ArrayList<>());
+		when(spyList.size()).thenReturn(5);
+		doReturn(mockCard).when(spyList).get(any(Integer.class));
+		int score = 19;
+		sut.displayDealerHand(spyList, score);
+
+		verify(mockPrinter, times(1)).println("Dealer has: ");
+		verify(mockPrinter, times(5)).println("Ace of Clubs");
+		verify(mockPrinter, times(1)).println("Score: " + score + "\n");
+	}
 
 }

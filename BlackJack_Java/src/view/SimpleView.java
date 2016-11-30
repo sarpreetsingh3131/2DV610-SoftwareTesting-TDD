@@ -37,4 +37,9 @@ public class SimpleView {
 		}
 		printer.println("Score: " + score + "\n");
 	}
+
+	public void displayDealerHand(ArrayList<Card> spyList, int score) {
+		// TODO Auto-generated method stub
+		
+	}
 }
