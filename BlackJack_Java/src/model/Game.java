@@ -47,8 +47,6 @@ public class Game {
 	}
 
 	public int getDealerScore() {
-		// TODO Auto-generated method stub
-		getDealer().calcScore();
-		return 17;
+		return getDealer().calcScore();
 	}
 }
