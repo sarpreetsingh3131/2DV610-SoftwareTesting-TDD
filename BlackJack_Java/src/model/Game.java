@@ -44,6 +44,7 @@ public class Game {
 
 	public boolean stand() {
 		// TODO Auto-generated method stub
-		return false;
+		getDealer().stand(getPlayer());
+		return true;
 	}
 }
