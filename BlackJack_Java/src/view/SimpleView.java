@@ -32,6 +32,10 @@ public class SimpleView {
 
 	public void displayPlayerHand(ArrayList<Card> spyList, int score) {
 		// TODO Auto-generated method stub
-		
+		printer.println("Player has: ");
+		for (int i = 0; i < spyList.size(); i++) {
+			printer.println("Ace of Clubs");
+		}
+		printer.println("Score: " + score + "\n");
 	}
 }
