@@ -51,6 +51,6 @@ public class Dealer extends Player {
 	}
 	
 	public Deck getDealerDeck(){
-		return new Deck();
+		return this.m_deck;
 	}
 }
