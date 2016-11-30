@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import rules.AmericanNewGameRule;
 import rules.BasicHitRule;
 import rules.DealerWinRule;
 import rules.RulesFactory;
@@ -18,12 +20,14 @@ public class DealerTest {
 	RulesFactory mockFactory;
 	DealerWinRule mockWinRule;
 	BasicHitRule mockHitRule;
+	AmericanNewGameRule mockNewGameRule;
 
 	@Before
 	public void setUp() throws Exception {
 		mockDependencies();
 		when(mockFactory.getWinRule()).thenReturn(mockWinRule);
 		when(mockFactory.getHitRule()).thenReturn(mockHitRule);
+		when(mockFactory.getNewGameRule()).thenReturn(mockNewGameRule);
 
 		sut = new Dealer(mockDeck, mockFactory);
 	}
@@ -65,6 +69,19 @@ public class DealerTest {
 		verify(mockHitRule, times(1)).doHit(sut);
 	}
 
+	@Test
+	public void shouldReturTrueAndPlayNewGameBecauseGameIsOver() {
+		Dealer spy = spy(sut);
+
+		doNothing().when((Player) spy).clearHand();
+		when(mockHitRule.doHit(sut)).thenReturn(false);
+		when(mockNewGameRule.newGame(spy, mockPlayer)).thenReturn(true);
+
+		assertTrue(spy.newGame(mockPlayer));
+		verify(spy, times(1)).clearHand();
+		verify(mockPlayer, times(1)).clearHand();
+	}
+
 	private void mockDependencies() {
 		mockCard = mock(Card.class);
 		mockPlayer = mock(Player.class);
@@ -72,5 +89,6 @@ public class DealerTest {
 		mockFactory = mock(RulesFactory.class);
 		mockWinRule = mock(DealerWinRule.class);
 		mockHitRule = mock(BasicHitRule.class);
+		mockNewGameRule = mock(AmericanNewGameRule.class);
 	}
 }
