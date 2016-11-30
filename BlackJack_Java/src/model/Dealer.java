@@ -49,14 +49,15 @@ public class Dealer extends Player {
 		}
 		return false;
 	}
-	
-	public Deck getDealerDeck(){
+
+	public Deck getDealerDeck() {
 		return this.m_deck;
 	}
 
 	public boolean stand(Player player) {
-		// TODO Auto-generated method stub
-		getDealerDeck();
+		if (getDealerDeck() != null) {
+			return true;
+		}
 		return false;
 	}
 }
