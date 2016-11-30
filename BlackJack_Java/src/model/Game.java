@@ -20,7 +20,7 @@ public class Game {
 
 	public Object getDealer() {
 		// TODO Auto-generated method stub
-		return null;
+		return m_dealer;
 	}
 
 }
