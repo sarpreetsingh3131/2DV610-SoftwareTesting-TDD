@@ -103,6 +103,19 @@ public class DealerTest {
 		verify(spy, times(1)).getDealerDeck();
 	}
 	
+	@Test
+	public void shouldStandReturnTrueBecauseDeckIsNotNull() {
+		Dealer spy = spy(sut);
+		when(spy.getDealerDeck()).thenReturn(mockDeck);
+		doNothing().when((Player) spy).showHand();
+		when(mockHitRule.doHit(spy)).thenReturn(false);
+		
+		assertTrue(spy.stand(mockPlayer));
+		verify(spy, times(1)).getDealerDeck();
+		verify((Player) spy, times(1)).showHand();
+		verify(mockHitRule, times(1)).doHit(spy);
+	}
+	
 	private void mockDependencies() {
 		mockCard = mock(Card.class);
 		mockPlayer = mock(Player.class);
