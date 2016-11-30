@@ -51,4 +51,14 @@ public class GameTest {
 		assertTrue(sut.isDealerWinner());
 		verify(mockDealer, times(1)).isDealerWinner(mockPlayer);
 	}
+	
+	@Test
+	public void shouldReturnTrueBecauseNewGameHasStarted() {
+		Game spy = spy(sut);
+		when(spy.getDealer()).thenReturn(mockDealer);
+		when(mockDealer.newGame(mockPlayer)).thenReturn(true);
+		
+		assertTrue(sut.newGame());
+		verify(mockDealer, times(1)).newGame(mockPlayer);
+	}
 }

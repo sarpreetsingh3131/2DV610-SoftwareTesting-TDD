@@ -33,4 +33,9 @@ public class Game {
 	public boolean isDealerWinner() {
 		return getDealer().isDealerWinner(getPlayer());
 	}
+
+	public boolean newGame() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
