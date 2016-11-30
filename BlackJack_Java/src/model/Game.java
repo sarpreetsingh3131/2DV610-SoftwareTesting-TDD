@@ -43,8 +43,6 @@ public class Game {
 	}
 
 	public boolean stand() {
-		// TODO Auto-generated method stub
-		getDealer().stand(getPlayer());
-		return true;
+		return getDealer().stand(getPlayer());
 	}
 }
