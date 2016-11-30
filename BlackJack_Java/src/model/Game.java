@@ -24,7 +24,7 @@ public class Game {
 
 	public Object getPlayer() {
 		// TODO Auto-generated method stub
-		return null;
+		return m_player;
 	}
 
 }
