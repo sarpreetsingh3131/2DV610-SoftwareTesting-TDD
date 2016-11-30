@@ -56,6 +56,7 @@ public class Dealer extends Player {
 
 	public boolean stand(Player player) {
 		// TODO Auto-generated method stub
+		getDealerDeck();
 		return false;
 	}
 }
