@@ -77,4 +77,12 @@ public class GameTest {
 		assertTrue(sut.stand());
 		verify(mockDealer, times(1)).stand(mockPlayer);
 	}
+	
+	@Test
+	public void shouldReturn17AsDealerScore() {
+		when(mockDealer.calcScore()).thenReturn(17);
+		
+		assertEquals(17, sut.getDealerScore());
+		verify(mockDealer, times(1)).calcScore();
+	}
 }

@@ -45,4 +45,9 @@ public class Game {
 	public boolean stand() {
 		return getDealer().stand(getPlayer());
 	}
+
+	public int getDealerScore() {
+		// TODO Auto-generated method stub
+		return getDealer().calcScore();
+	}
 }
