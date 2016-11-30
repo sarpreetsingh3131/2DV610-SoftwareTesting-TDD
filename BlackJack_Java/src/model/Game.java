@@ -61,12 +61,6 @@ public class Game {
 	}
 
 	public ArrayList<Card> getDealerHand() {
-		// TODO Auto-generated method stub
-		ArrayList<Card> l = new ArrayList<>();
-		for(int i =0 ; i < 3; i++)
-			l.add(new Card());
-		getDealer().getHand();
-		
-		return l;
+		return getDealer().getHand();
 	}
 }
