@@ -52,6 +52,7 @@ public class Game {
 
 	public int getPlayerScore() {
 		// TODO Auto-generated method stub
-		return 0;
+		getPlayer().calcScore();
+		return 15;
 	}
 }
