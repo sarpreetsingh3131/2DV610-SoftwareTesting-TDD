@@ -11,13 +11,11 @@ import model.Card.Value;
 
 public class DeckTest {
 
-	Card mockCard;
+	Card mockCard = mock(Card.class);
 	Deck sut;
 
 	@Before
 	public void setUp() throws Exception {
-		mockCard = mock(Card.class);
-
 		when(mockCard.makeNewCard(any(Card.Color.class), any(Card.Value.class)))
 				.thenReturn(new Card().makeNewCard(any(Card.Color.class), any(Card.Value.class)));
 
@@ -37,7 +35,7 @@ public class DeckTest {
 	public void shouldReturnAListWith52Cards() {
 		assertEquals(52, sut.getCards().size());
 	}
-	
+
 	@Test
 	public void shouldReturnAndRemoveFirstCardFromTheList() {
 		assertNotNull(sut.getCard());

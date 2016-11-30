@@ -12,18 +12,17 @@ import rules.RulesFactory;
 public class DealerTest {
 
 	Dealer sut;
-	Card mockCard;
-	Player mockPlayer;
-	Deck mockDeck;
+	Card mockCard = mock(Card.class);
+	Player mockPlayer = mock(Player.class);
+	Deck mockDeck = mock(Deck.class);
+	RulesFactory mockFactory = mock(RulesFactory.class);
+	DealerWinRule mockWinRule = mock(DealerWinRule.class);
+	BasicHitRule mockHitRule = mock(BasicHitRule.class);
+	AmericanNewGameRule mockNewGameRule = mock(AmericanNewGameRule.class);
 	final int maxScore = 21;
-	RulesFactory mockFactory;
-	DealerWinRule mockWinRule;
-	BasicHitRule mockHitRule;
-	AmericanNewGameRule mockNewGameRule;
 
 	@Before
 	public void setUp() throws Exception {
-		mockDependencies();
 		when(mockFactory.getWinRule()).thenReturn(mockWinRule);
 		when(mockFactory.getHitRule()).thenReturn(mockHitRule);
 		when(mockFactory.getNewGameRule()).thenReturn(mockNewGameRule);
@@ -113,15 +112,5 @@ public class DealerTest {
 		verify(spy, times(1)).getDealerDeck();
 		verify((Player) spy, times(1)).showHand();
 		verify(mockHitRule, times(1)).doHit(spy);
-	}
-	
-	private void mockDependencies() {
-		mockCard = mock(Card.class);
-		mockPlayer = mock(Player.class);
-		mockDeck = mock(Deck.class);
-		mockFactory = mock(RulesFactory.class);
-		mockWinRule = mock(DealerWinRule.class);
-		mockHitRule = mock(BasicHitRule.class);
-		mockNewGameRule = mock(AmericanNewGameRule.class);
 	}
 }

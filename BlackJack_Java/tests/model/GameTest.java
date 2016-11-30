@@ -7,18 +7,18 @@ import org.junit.Test;
 
 public class GameTest {
 
+	Game sut;
+	Player mockPlayer = mock(Player.class);
+	Dealer mockDealer = mock(Dealer.class);
+
 	@Before
 	public void setUp() throws Exception {
+		sut = new Game();
 	}
 
 	@Test
 	public void shouldCreateNewGameObject() {
-		Game sut = new Game();
-		Player mockPlayer = mock(Player.class);
-		Dealer mockDealer = mock(Dealer.class);
 		sut = sut.makeNewGame(mockPlayer, mockDealer);
-	
 		assertNotNull(sut);
 	}
-
 }
