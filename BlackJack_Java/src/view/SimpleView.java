@@ -5,6 +5,10 @@ import java.io.PrintStream;
 public class SimpleView {
 
 	private PrintStream printer;
+	private final char play = 'p';
+	private final char hit = 'h';
+	private final char stand = 's';
+	private final char quit = 'q';
 
 	public SimpleView(PrintStream printer) {
 		this.printer = printer;
@@ -15,7 +19,7 @@ public class SimpleView {
 	}
 
 	public void displayWelcomeMessage() {
-		// TODO Auto-generated method stub
-		printer.println("Hello Black Jack World\nType 'p' to Play, 'h' to Hit, 's' to Stand, 'q' to Quit");
+		getPrinter().println("Hello Black Jack World\nType " + "\'" + play + "\' to Play, " + "\'" + hit + "\' to Hit, " + "\'" + stand
+				+ "\' to Stand, " + "\'" + quit + "\' to Quit");
 	}
 }

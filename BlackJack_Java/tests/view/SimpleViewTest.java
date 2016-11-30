@@ -8,29 +8,26 @@ import org.junit.Test;
 
 public class SimpleViewTest {
 
+	final String WELCOME_MESSAGE = "Hello Black Jack World\nType 'p' to Play, 'h' to Hit, 's' to Stand, 'q' to Quit";
+	PrintStream mockPrinter = mock(PrintStream.class);
+	SimpleView sut;
+
 	@Before
 	public void setUp() throws Exception {
-
+		sut = new SimpleView(mockPrinter);
 	}
 
 	@Test
 	public void shouldReturnPrinter() {
-		PrintStream mockPrinter = mock(PrintStream.class);
-		SimpleView sut = new SimpleView(mockPrinter);
-
 		assertNotNull(sut.getPrinter());
 	}
 
 	@Test
 	public void shouldDisplayWelcomeMessage() {
-		PrintStream mockPrinter = mock(PrintStream.class);
-		SimpleView sut = new SimpleView(mockPrinter);
-
 		SimpleView spy = spy(sut);
 		when(spy.getPrinter()).thenReturn(mockPrinter);
-
 		sut.displayWelcomeMessage();
-
-		verify(mockPrinter, times(1)).println("Hello Black Jack World\nType 'p' to Play, 'h' to Hit, 's' to Stand, 'q' to Quit");
+		
+		verify(mockPrinter, times(1)).println(WELCOME_MESSAGE);
 	}
 }
