@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Game {
 
 	private Dealer m_dealer;
@@ -52,5 +54,10 @@ public class Game {
 
 	public int getPlayerScore() {
 		return getPlayer().calcScore();
+	}
+
+	public ArrayList<Card> getPlayerHand() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

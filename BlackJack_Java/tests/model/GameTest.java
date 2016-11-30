@@ -1,7 +1,17 @@
 package model;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -92,5 +102,15 @@ public class GameTest {
 		
 		assertEquals(15, sut.getPlayerScore());
 		verify(mockPlayer, times(1)).calcScore();
+	}
+	
+	@Test
+	public void shouldReturnAListOfPlayerCards() {
+		ArrayList<Card> spy = spy(new ArrayList<Card>());
+		when(spy.size()).thenReturn(3);
+		when(mockPlayer.getHand()).thenReturn(spy);
+		
+		assertEquals(3, sut.getPlayerHand().size());
+		verify(mockPlayer, times(1)).getHand();
 	}
 }
