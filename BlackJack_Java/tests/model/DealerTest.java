@@ -94,6 +94,15 @@ public class DealerTest {
 		assertNotNull(sut.getDealerDeck());
 	}
 	
+	@Test
+	public void shouldReturnFalseBecauseDeckIsNull() {
+		Dealer spy = spy(sut);
+		when(spy.getDealerDeck()).thenReturn(null);
+		
+		assertFalse(spy.stand(mockPlayer));
+		verify(spy, times(1)).getDealerDeck();
+	}
+	
 	private void mockDependencies() {
 		mockCard = mock(Card.class);
 		mockPlayer = mock(Player.class);
