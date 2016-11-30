@@ -6,14 +6,14 @@ public class Game {
 
 	private Dealer m_dealer;
 	private Player m_player;
-	
+
 	public Game() {
-		
+
 	}
 
 	private Game(Player player, Dealer dealer) {
 		m_dealer = dealer;
-		m_player = player;	
+		m_player = player;
 	}
 
 	public Game makeNewGame(Player player, Dealer dealer) {
@@ -57,11 +57,6 @@ public class Game {
 	}
 
 	public ArrayList<Card> getPlayerHand() {
-		// TODO Auto-generated method stub
-		ArrayList<Card> list = new ArrayList<>();
-		for(int i = 0; i < 3;i++)
-			list.add(new Card());
-		getPlayer().getHand();
-		return list;
+		return getPlayer().getHand();
 	}
 }
