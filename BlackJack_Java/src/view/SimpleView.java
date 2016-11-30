@@ -16,5 +16,6 @@ public class SimpleView {
 
 	public void displayWelcomeMessage() {
 		// TODO Auto-generated method stub
+		printer.println("Hello Black Jack World\nType 'p' to Play, 'h' to Hit, 's' to Stand, 'q' to Quit");
 	}
 }
