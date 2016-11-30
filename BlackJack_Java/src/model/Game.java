@@ -49,4 +49,9 @@ public class Game {
 	public int getDealerScore() {
 		return getDealer().calcScore();
 	}
+
+	public int getPlayerScore() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

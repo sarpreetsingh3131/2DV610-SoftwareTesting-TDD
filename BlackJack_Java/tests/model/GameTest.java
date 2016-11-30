@@ -85,4 +85,12 @@ public class GameTest {
 		assertEquals(17, sut.getDealerScore());
 		verify(mockDealer, times(1)).calcScore();
 	}
+	
+	@Test
+	public void shouldReturn15AsPlayerScore() {
+		when(mockPlayer.calcScore()).thenReturn(15);
+		
+		assertEquals(15, sut.getPlayerScore());
+		verify(mockPlayer, times(1)).calcScore();
+	}
 }
