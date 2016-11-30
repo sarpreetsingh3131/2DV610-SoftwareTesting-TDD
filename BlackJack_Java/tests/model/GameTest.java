@@ -113,4 +113,14 @@ public class GameTest {
 		assertEquals(3, sut.getPlayerHand().size());
 		verify(mockPlayer, times(1)).getHand();
 	}
+	
+	@Test
+	public void shouldReturnAListOfDealerCards() {
+		ArrayList<Card> spy = spy(new ArrayList<Card>());
+		when(spy.size()).thenReturn(3);
+		when(mockDealer.getHand()).thenReturn(spy);
+		
+		assertEquals(3, sut.getDealerHand().size());
+		verify(mockDealer, times(1)).getHand();
+	}
 }

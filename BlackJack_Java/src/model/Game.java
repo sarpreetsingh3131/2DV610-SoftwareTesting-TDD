@@ -59,4 +59,9 @@ public class Game {
 	public ArrayList<Card> getPlayerHand() {
 		return getPlayer().getHand();
 	}
+
+	public ArrayList<Card> getDealerHand() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
