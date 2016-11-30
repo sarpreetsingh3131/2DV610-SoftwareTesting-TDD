@@ -1,4 +1,4 @@
-package rules;
+package model.rules;
 
 import model.Player;
 

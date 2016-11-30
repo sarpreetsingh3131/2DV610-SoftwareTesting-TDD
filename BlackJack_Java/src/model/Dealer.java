@@ -1,9 +1,9 @@
 package model;
 
-import rules.AmericanNewGameRule;
-import rules.BasicHitRule;
-import rules.DealerWinRule;
-import rules.RulesFactory;
+import model.rules.AmericanNewGameRule;
+import model.rules.BasicHitRule;
+import model.rules.DealerWinRule;
+import model.rules.RulesFactory;
 
 public class Dealer extends Player {
 

@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 import model.Dealer;
 import model.Player;
+import model.rules.AmericanNewGameRule;
 
 public class AmericanNewGameRuleTest {
 

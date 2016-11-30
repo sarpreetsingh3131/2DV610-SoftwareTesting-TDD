@@ -1,4 +1,4 @@
-package rules;
+package model.rules;
 
 public class RulesFactory {
 

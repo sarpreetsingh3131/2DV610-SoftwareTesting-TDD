@@ -4,10 +4,11 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
-import rules.AmericanNewGameRule;
-import rules.BasicHitRule;
-import rules.DealerWinRule;
-import rules.RulesFactory;
+
+import model.rules.AmericanNewGameRule;
+import model.rules.BasicHitRule;
+import model.rules.DealerWinRule;
+import model.rules.RulesFactory;
 
 public class DealerTest {
 

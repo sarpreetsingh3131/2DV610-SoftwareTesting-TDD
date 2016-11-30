@@ -5,6 +5,7 @@ import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 import model.Player;
+import model.rules.BasicHitRule;
 
 public class BasicHitRuleTest {
 

@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import model.rules.AmericanNewGameRule;
+import model.rules.BasicHitRule;
+import model.rules.DealerWinRule;
+import model.rules.RulesFactory;
+
 public class RulesFactoryTest {
 
 	RulesFactory sut;
