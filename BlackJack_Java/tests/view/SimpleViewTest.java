@@ -3,6 +3,10 @@ package view;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import java.io.PrintStream;
+import model.*;
+import model.Card.Color;
+import model.Card.Value;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,5 +33,18 @@ public class SimpleViewTest {
 		sut.displayWelcomeMessage();
 		
 		verify(mockPrinter, times(1)).println(WELCOME_MESSAGE);
+	}
+	
+	@Test
+	public void shouldDisplayCardColorAndValue() {
+		Card mockCard = mock(Card.class);
+		when(mockCard.getColor()).thenReturn(Color.Clubs);
+		when(mockCard.getValue()).thenReturn(Value.Ace);
+		SimpleView spy = spy(sut);
+		when(spy.getPrinter()).thenReturn(mockPrinter);
+		
+		sut.displayCard(mockCard);
+		
+		verify(mockPrinter, times(1)).println("Ace of Clubs");
 	}
 }

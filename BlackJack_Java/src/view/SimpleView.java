@@ -1,6 +1,7 @@
 package view;
 
 import java.io.PrintStream;
+import model.Card;
 
 public class SimpleView {
 
@@ -19,7 +20,11 @@ public class SimpleView {
 	}
 
 	public void displayWelcomeMessage() {
-		getPrinter().println("Hello Black Jack World\nType " + "\'" + play + "\' to Play, " + "\'" + hit + "\' to Hit, " + "\'" + stand
-				+ "\' to Stand, " + "\'" + quit + "\' to Quit");
+		getPrinter().println("Hello Black Jack World\nType " + "\'" + play + "\' to Play, " + "\'" + hit + "\' to Hit, "
+				+ "\'" + stand + "\' to Stand, " + "\'" + quit + "\' to Quit");
+	}
+
+	public void displayCard(Card card) {
+		// TODO Auto-generated method stub
 	}
 }
