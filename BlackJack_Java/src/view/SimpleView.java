@@ -39,7 +39,11 @@ public class SimpleView {
 	}
 
 	public void displayDealerHand(ArrayList<Card> spyList, int score) {
-		// TODO Auto-generated method stub
+		printer.println("Dealer has: ");
+		for (int i = 0; i < spyList.size(); i++) {
+			displayCard(spyList.get(i));
+		}
+		printer.println("Score: " + score + "\n");
 		
 	}
 }
