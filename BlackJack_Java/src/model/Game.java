@@ -29,4 +29,9 @@ public class Game {
 	public boolean isGameOver() {
 		return getDealer().isGameOver();
 	}
+
+	public boolean isDealerWinner() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
