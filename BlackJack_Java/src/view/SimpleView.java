@@ -31,19 +31,18 @@ public class SimpleView {
 	}
 
 	public void displayPlayerHand(ArrayList<Card> spyList, int score) {
-		printer.println("Player has: ");
-		for (int i = 0; i < spyList.size(); i++) {
-			displayCard(spyList.get(i));
-		}
-		printer.println("Score: " + score + "\n");
+		DisplayHand("Player",spyList, score); 
 	}
 
 	public void displayDealerHand(ArrayList<Card> spyList, int score) {
-		printer.println("Dealer has: ");
+		DisplayHand("Dealer",spyList, score); 
+	}
+	
+	public void DisplayHand(String a_name, ArrayList<Card> spyList, int a_score) {
+		printer.println(a_name + " has: ");
 		for (int i = 0; i < spyList.size(); i++) {
 			displayCard(spyList.get(i));
 		}
-		printer.println("Score: " + score + "\n");
-		
+		printer.println("Score: " + a_score + "\n");
 	}
 }

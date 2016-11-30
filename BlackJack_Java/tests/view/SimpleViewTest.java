@@ -18,7 +18,6 @@ public class SimpleViewTest {
 	SimpleView sut;
 	SimpleView spy;
 
-
 	@Before
 	public void setUp() throws Exception {
 		sut = new SimpleView(mockPrinter);
@@ -35,39 +34,40 @@ public class SimpleViewTest {
 	@Test
 	public void shouldDisplayWelcomeMessage() {
 		sut.displayWelcomeMessage();
-		verify(mockPrinter, times(1)).println("Hello Black Jack World\nType 'p' to Play, 'h' to Hit, 's' to Stand, 'q' to Quit");
+		verify(mockPrinter, times(1))
+				.println("Hello Black Jack World\nType 'p' to Play, 'h' to Hit, 's' to Stand, 'q' to Quit");
 	}
-	
+
 	@Test
 	public void shouldDisplayCardColorAndValue() {
-		sut.displayCard(mockCard);	
+		sut.displayCard(mockCard);
 		verify(mockPrinter, times(1)).println("Ace of Clubs");
 	}
-	
+
 	@Test
 	public void shouldDisplayPlayerHand() {
-		ArrayList<Card> spyList = spy(new ArrayList<>());
-		when(spyList.size()).thenReturn(5);
-		doReturn(mockCard).when(spyList).get(any(Integer.class));
-		int score = 19;
-		sut.displayPlayerHand(spyList, score);
-
-		verify(mockPrinter, times(1)).println("Player has: ");
-		verify(mockPrinter, times(5)).println("Ace of Clubs");
-		verify(mockPrinter, times(1)).println("Score: " + score + "\n");
+		int score = 17;
+		sut.displayPlayerHand(createSpyList(), score);
+		shouldCallAllMethods("Player", score);
 	}
-	
+
 	@Test
 	public void shouldDisplayDealerHand() {
+		int score = 21;
+		sut.displayDealerHand(createSpyList(), score);
+		shouldCallAllMethods("Dealer", score);
+	}
+
+	private ArrayList<Card> createSpyList() {
 		ArrayList<Card> spyList = spy(new ArrayList<>());
 		when(spyList.size()).thenReturn(5);
 		doReturn(mockCard).when(spyList).get(any(Integer.class));
-		int score = 19;
-		sut.displayDealerHand(spyList, score);
-
-		verify(mockPrinter, times(1)).println("Dealer has: ");
+		return spyList;
+	}
+	
+	private void shouldCallAllMethods(String name, int score){
+		verify(mockPrinter, times(1)).println(name + " has: ");
 		verify(mockPrinter, times(5)).println("Ace of Clubs");
 		verify(mockPrinter, times(1)).println("Score: " + score + "\n");
 	}
-
 }
