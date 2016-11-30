@@ -14,23 +14,21 @@ public class GameTest {
 	@Before
 	public void setUp() throws Exception {
 		sut = new Game();
+		sut = sut.makeNewGame(mockPlayer, mockDealer);
 	}
 
 	@Test
 	public void shouldCreateNewGameObject() {
-		sut = sut.makeNewGame(mockPlayer, mockDealer);
 		assertNotNull(sut);
 	}
-	
+
 	@Test
 	public void shouldReturnDealer() {
-		sut = sut.makeNewGame(mockPlayer, mockDealer);
 		assertNotNull(sut.getDealer());
 	}
-	
+
 	@Test
 	public void shouldReturnPlayer() {
-		sut = sut.makeNewGame(mockPlayer, mockDealer);
 		assertNotNull(sut.getPlayer());
 	}
 }

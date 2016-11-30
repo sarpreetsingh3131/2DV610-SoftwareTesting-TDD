@@ -22,8 +22,7 @@ public class Game {
 		return m_dealer;
 	}
 
-	public Object getPlayer() {
-		// TODO Auto-generated method stub
+	public Player getPlayer() {
 		return m_player;
 	}
 
