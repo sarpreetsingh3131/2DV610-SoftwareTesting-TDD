@@ -1,6 +1,8 @@
 package view;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
+
 import model.Card;
 
 public class SimpleView {
@@ -26,5 +28,10 @@ public class SimpleView {
 
 	public void displayCard(Card card) {
 		printer.println(card.getValue() + " of " + card.getColor());
+	}
+
+	public void displayPlayerHand(ArrayList<Card> spyList, int score) {
+		// TODO Auto-generated method stub
+		
 	}
 }
