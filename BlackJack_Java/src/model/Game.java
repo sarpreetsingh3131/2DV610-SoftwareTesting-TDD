@@ -41,4 +41,9 @@ public class Game {
 	public boolean hit() {
 		return getDealer().hit(getPlayer(), true);
 	}
+
+	public boolean stand() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

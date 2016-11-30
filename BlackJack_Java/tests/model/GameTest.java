@@ -69,4 +69,12 @@ public class GameTest {
 		assertTrue(sut.hit());
 		verify(mockDealer, times(1)).hit(mockPlayer, true);
 	}
+	
+	@Test
+	public void shouldReturnTrueBecauseDealerCanStand() {
+		when(mockDealer.stand(mockPlayer)).thenReturn(true);
+		
+		assertTrue(sut.stand());
+		verify(mockDealer, times(1)).stand(mockPlayer);
+	}
 }
