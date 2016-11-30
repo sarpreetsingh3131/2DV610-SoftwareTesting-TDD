@@ -81,6 +81,15 @@ public class DealerTest {
 		verify(mockPlayer, times(1)).clearHand();
 	}
 
+	@Test
+	public void shouldReturnFalseAndNotHitBecauseScoreIsAboveMaxAndGameIsOver() {
+		when(mockPlayer.calcScore()).thenReturn(22);
+		when(mockHitRule.doHit(sut)).thenReturn(false);
+		
+		assertFalse(sut.hit(mockPlayer, true));
+	}
+	
+	
 	private void mockDependencies() {
 		mockCard = mock(Card.class);
 		mockPlayer = mock(Player.class);

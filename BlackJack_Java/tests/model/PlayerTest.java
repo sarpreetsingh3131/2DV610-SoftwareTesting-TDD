@@ -67,6 +67,11 @@ public class PlayerTest {
 		assertEquals(14, score);
 	}
 	
+	@Test
+	public void shouldReturnArrayListContainingFourCards(){
+		assertEquals(4, sut.getHand().size());
+	}
+	
 	private void addThisCardToPlayerHand(Card card, int times) {
 		for (int i = 0; i < times; i++) {
 			sut.dealCard(card);
