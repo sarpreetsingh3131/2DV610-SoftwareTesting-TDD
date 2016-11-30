@@ -6,7 +6,7 @@ public class Game {
 	private Player m_player;
 	
 	public Game() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	private Game(Player player, Dealer dealer) {
@@ -35,8 +35,6 @@ public class Game {
 	}
 
 	public boolean newGame() {
-		// TODO Auto-generated method stub
-		getDealer().newGame(getPlayer());
-		return true;
+		return getDealer().newGame(getPlayer());
 	}
 }

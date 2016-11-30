@@ -10,11 +10,15 @@ public class GameTest {
 	Game sut;
 	Player mockPlayer = mock(Player.class);
 	Dealer mockDealer = mock(Dealer.class);
+	Game spy;
 
 	@Before
 	public void setUp() throws Exception {
 		sut = new Game();
 		sut = sut.makeNewGame(mockPlayer, mockDealer);
+		
+		spy = spy(sut);
+		when(spy.getDealer()).thenReturn(mockDealer);
 	}
 
 	@Test
@@ -44,8 +48,6 @@ public class GameTest {
 	
 	@Test
 	public void shouldReturnTrueBecauseDealerIsWinner() {
-		Game spy = spy(sut);
-		when(spy.getDealer()).thenReturn(mockDealer);
 		when(mockDealer.isDealerWinner(mockPlayer)).thenReturn(true);
 		
 		assertTrue(sut.isDealerWinner());
@@ -54,8 +56,6 @@ public class GameTest {
 	
 	@Test
 	public void shouldReturnTrueBecauseNewGameHasStarted() {
-		Game spy = spy(sut);
-		when(spy.getDealer()).thenReturn(mockDealer);
 		when(mockDealer.newGame(mockPlayer)).thenReturn(true);
 		
 		assertTrue(sut.newGame());
