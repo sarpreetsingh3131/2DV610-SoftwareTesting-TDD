@@ -58,6 +58,10 @@ public class Game {
 
 	public ArrayList<Card> getPlayerHand() {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Card> list = new ArrayList<>();
+		for(int i = 0; i < 3;i++)
+			list.add(new Card());
+		getPlayer().getHand();
+		return list;
 	}
 }
