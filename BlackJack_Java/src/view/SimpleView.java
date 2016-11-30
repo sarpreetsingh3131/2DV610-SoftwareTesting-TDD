@@ -26,5 +26,6 @@ public class SimpleView {
 
 	public void displayCard(Card card) {
 		// TODO Auto-generated method stub
+		printer.println("Ace of Clubs");
 	}
 }
