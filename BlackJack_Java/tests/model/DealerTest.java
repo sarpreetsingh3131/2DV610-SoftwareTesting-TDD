@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
-
 import rules.BasicHitRule;
 import rules.DealerWinRule;
 import rules.RulesFactory;
@@ -64,7 +63,15 @@ public class DealerTest {
 		verify(mockPlayer, times(1)).calcScore();
 		verify(mockDeck, times(1)).getCard();
 		verify(mockCard, times(1)).show(true);
-		verify(mockPlayer, times(1)).dealCard(mockCard);
+		verify(mockPlayer, times(1)).dealCard(mockCard);	
+	}
+	
+	@Test
+	public void shouldReturnFalseAndNotPlayNewGameBecauseGameIsNotOver() {
+		when(mockHitRule.doHit(sut)).thenReturn(true);
+		boolean actual = sut.newGame(mockPlayer);
 		
+		assertFalse(actual);
+		verify(mockHitRule, times(1)).doHit(sut);
 	}
 }
