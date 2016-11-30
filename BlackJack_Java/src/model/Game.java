@@ -32,6 +32,7 @@ public class Game {
 
 	public boolean isDealerWinner() {
 		// TODO Auto-generated method stub
-		return false;
+		getDealer().isDealerWinner(getPlayer());
+		return true;
 	}
 }
