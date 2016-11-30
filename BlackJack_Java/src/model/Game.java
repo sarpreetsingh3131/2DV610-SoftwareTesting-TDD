@@ -28,7 +28,7 @@ public class Game {
 
 	public boolean isGameOver() {
 		// TODO Auto-generated method stub
-		
+		m_dealer.isGameOver();
 		return false;
 	}
 
