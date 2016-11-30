@@ -18,8 +18,7 @@ public class Game {
 		return new Game(player, dealer);
 	}
 
-	public Object getDealer() {
-		// TODO Auto-generated method stub
+	public Dealer getDealer() {
 		return m_dealer;
 	}
 
