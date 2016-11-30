@@ -1,5 +1,6 @@
 package model;
 
+import rules.AmericanNewGameRule;
 import rules.BasicHitRule;
 import rules.DealerWinRule;
 import rules.RulesFactory;
@@ -9,11 +10,13 @@ public class Dealer extends Player {
 	private Deck m_deck;
 	private DealerWinRule m_winRule;
 	private BasicHitRule m_hitRule;
+	private AmericanNewGameRule m_newGameRule;
 
 	public Dealer(Deck deck, RulesFactory a_factory) {
 		m_deck = deck;
 		m_winRule = a_factory.getWinRule();
 		m_hitRule = a_factory.getHitRule();
+		m_newGameRule = a_factory.getNewGameRule();
 	}
 
 	public boolean isDealerWinner(Player a_player) {
@@ -39,9 +42,10 @@ public class Dealer extends Player {
 
 	public boolean newGame(Player player) {
 		if (isGameOver()) {
+			m_deck.makeNewDeck(new Card());
 			clearHand();
 			player.clearHand();
-			return true;
+			return m_newGameRule.newGame(this, player);
 		}
 		return false;
 	}
