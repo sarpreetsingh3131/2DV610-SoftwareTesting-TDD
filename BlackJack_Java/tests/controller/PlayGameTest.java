@@ -2,9 +2,7 @@ package controller;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-
 import java.io.InputStream;
-
 import org.junit.*;
 import model.Game;
 import view.SimpleView;
@@ -44,5 +42,14 @@ public class PlayGameTest {
 		assertTrue(sut.play(mockView, mockGame, mockInput));
 		verify(mockView, times(1)).getInput(mockInput);
 		verify(mockGame, times(1)).newGame();
+	}
+	
+	@Test
+	public void shouldReturnTrueAndGetInputAndHit() {
+		when(mockView.getInput(mockInput)).thenReturn((int) 'h');
+		
+		assertTrue(sut.play(mockView, mockGame, mockInput));
+		verify(mockView, times(1)).getInput(mockInput);
+		verify(mockGame, times(1)).hit();
 	}
 }

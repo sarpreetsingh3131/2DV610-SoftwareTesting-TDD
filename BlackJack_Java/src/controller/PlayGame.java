@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.InputStream;
-
 import model.Game;
 import view.SimpleView;
 
@@ -16,8 +15,10 @@ public class PlayGame {
 		if (game.isGameOver()) {
 			view.displayGameOver(game.isDealerWinner());
 		}
-		view.getInput(input);
-		game.newGame();
+		int in = view.getInput(input);
+		if (in == 'p') {
+			game.newGame();
+		}
 		return true;
 	}
 }
