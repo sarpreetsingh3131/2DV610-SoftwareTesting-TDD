@@ -51,5 +51,6 @@ public class SimpleView {
 		if (isDealerWon) {
 			printer.println("Dealer Won!");
 		}
+		printer.println("Player Won!");
 	}
 }
