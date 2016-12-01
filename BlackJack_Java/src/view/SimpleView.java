@@ -1,8 +1,9 @@
 package view;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-
 import model.Card;
 
 public class SimpleView {
@@ -53,5 +54,10 @@ public class SimpleView {
 		} else {
 			printer.println("Player Won!");
 		}
+	}
+
+	public Object getInput(InputStream input) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

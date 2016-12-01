@@ -1,9 +1,9 @@
 package view;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
@@ -68,6 +68,16 @@ public class SimpleViewTest {
 		mustShowCorrectWinner(false, "Player");
 	}
 
+	@SuppressWarnings("unchecked")
+	@Test
+	public void shouldReturnZeroOnInputException() throws IOException {
+		InputStream mockInput = mock(InputStream.class);
+		when(mockInput.read()).thenThrow(IOException.class);
+		
+		assertEquals(0, sut.getInput(mockInput));
+		verify(mockInput, times(1)).read();
+	}
+	
 	private void mustShowCorrectWinner(boolean isDealerWon, String name) {
 		sut.displayGameOver(isDealerWon);
 		verify(mockPrinter, times(1)).println("Game Over");
