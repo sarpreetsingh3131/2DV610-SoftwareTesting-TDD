@@ -23,6 +23,7 @@ public class SimpleView {
 	}
 
 	public void displayWelcomeMessage() {
+		createNewView();
 		getPrinter().println("Hello Black Jack World\nType " + "\'" + play + "\' to Play, " + "\'" + hit + "\' to Hit, "
 				+ "\'" + stand + "\' to Stand, " + "\'" + quit + "\' to Quit");
 	}
@@ -68,8 +69,7 @@ public class SimpleView {
 		}
 	}
 
-	public void createNewView() {
-		// TODO Auto-generated method stub
+	private void createNewView() {
 		for (int i = 0; i < 50; i++)
 			printer.println();
 	}

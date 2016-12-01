@@ -31,10 +31,11 @@ public class SimpleViewTest {
 	}
 
 	@Test
-	public void shouldDisplayWelcomeMessage() {
+	public void shouldDisplayWelcomeMessageAndPrint50EmptyLines() {
 		sut.displayWelcomeMessage();
 		verify(mockPrinter, times(1))
 				.println("Hello Black Jack World\nType 'p' to Play, 'h' to Hit, 's' to Stand, 'q' to Quit");
+		verify(mockPrinter, times(50)).println();
 	}
 
 	@Test
@@ -82,13 +83,6 @@ public class SimpleViewTest {
 
 		assertEquals(112, sut.getInput(mockInput));
 		verify(mockInput, times(1)).read();
-	}
-
-	@Test
-	public void shouldPrint50EmptyLines(){
-		sut.createNewView();
-		
-		verify(mockPrinter, times(50)).println();
 	}
 	
 	private void mustShowCorrectWinner(boolean isDealerWon, String name) {
