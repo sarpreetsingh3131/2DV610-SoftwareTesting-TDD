@@ -25,9 +25,6 @@ public class PlayGame {
 		} else if (in == 's') {
 			game.stand();
 		}
-		else if (in == 'q') {
-			return false;
-		}
-		return true;
+		return in != 'q';
 	}
 }

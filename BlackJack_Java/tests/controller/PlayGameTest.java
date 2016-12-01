@@ -37,31 +37,30 @@ public class PlayGameTest {
 
 	@Test
 	public void shouldReturnTrueAndGetInputAndPlayNewGame() {
-		userInput('p');
+		userInput('p', true);
 		verify(mockGame, times(1)).newGame();
 	}
 
 	@Test
 	public void shouldReturnTrueAndGetInputAndHit() {
-		userInput('h');
+		userInput('h', true);
 		verify(mockGame, times(1)).hit();
 	}
 
 	@Test
 	public void shouldReturnTrueAndGetInputAndStand() {
-		userInput('s');
+		userInput('s', true);
 		verify(mockGame, times(1)).stand();
 	}
-	
+
 	@Test
 	public void shouldGetInputAndReturnFalse() {
-		when(mockView.getInput(mockInput)).thenReturn((int) 'q');
-		assertFalse(sut.play(mockView, mockGame, mockInput));
+		userInput('q', false);
 	}
-	
-	private void userInput(char c) {
+
+	private void userInput(char c, boolean isTrue) {
 		when(mockView.getInput(mockInput)).thenReturn((int) c);
-		assertTrue(sut.play(mockView, mockGame, mockInput));
+		assertEquals(isTrue, sut.play(mockView, mockGame, mockInput));
 		verify(mockView, times(1)).getInput(mockInput);
 	}
 }
