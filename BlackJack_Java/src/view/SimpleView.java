@@ -31,13 +31,13 @@ public class SimpleView {
 	}
 
 	public void displayPlayerHand(ArrayList<Card> spyList, int score) {
-		DisplayHand("Player",spyList, score); 
+		DisplayHand("Player", spyList, score);
 	}
 
 	public void displayDealerHand(ArrayList<Card> spyList, int score) {
-		DisplayHand("Dealer",spyList, score); 
+		DisplayHand("Dealer", spyList, score);
 	}
-	
+
 	public void DisplayHand(String a_name, ArrayList<Card> spyList, int a_score) {
 		printer.println(a_name + " has: ");
 		for (int i = 0; i < spyList.size(); i++) {
@@ -47,8 +47,9 @@ public class SimpleView {
 	}
 
 	public void displayGameOver(boolean isDealerWon) {
-		// TODO Auto-generated method stub
 		printer.println("Game Over");
-		printer.println("Dealer Won!");
+		if (isDealerWon) {
+			printer.println("Dealer Won!");
+		}
 	}
 }
