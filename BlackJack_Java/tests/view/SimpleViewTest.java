@@ -57,6 +57,14 @@ public class SimpleViewTest {
 		sut.displayDealerHand(createSpyList(), score);
 		shouldCallAllMethods("Dealer", score);
 	}
+	
+	@Test
+	public void shouldDisplayGameOverAndDealerWon() {
+		sut.displayGameOver(true);
+	
+		verify(mockPrinter, times(1)).println("Game Over");
+		verify(mockPrinter, times(1)).println("Dealer Won!");
+	}
 
 	private ArrayList<Card> createSpyList() {
 		ArrayList<Card> spyList = spy(new ArrayList<>());

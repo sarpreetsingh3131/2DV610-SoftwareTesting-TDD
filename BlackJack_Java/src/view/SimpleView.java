@@ -45,4 +45,8 @@ public class SimpleView {
 		}
 		printer.println("Score: " + a_score + "\n");
 	}
+
+	public void displayGameOver(boolean isDealerWon) {
+		// TODO Auto-generated method stub
+	}
 }
