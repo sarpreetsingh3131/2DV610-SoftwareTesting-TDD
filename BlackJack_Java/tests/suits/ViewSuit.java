@@ -3,9 +3,10 @@ package suits;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
+import view.SimpleViewTest;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ModelSuit.class, RulesSuit.class, ViewSuit.class })
-public class CompleteSystemSuit {
+@SuiteClasses({ SimpleViewTest.class })
+public class ViewSuit {
 
 }
