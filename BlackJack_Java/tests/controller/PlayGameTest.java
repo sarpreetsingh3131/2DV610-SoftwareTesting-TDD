@@ -21,4 +21,13 @@ public class PlayGameTest {
 		verify(mockView, times(1)).displayDealerHand(mockGame.getDealerHand(), mockGame.getDealerScore());
 		verify(mockView, times(1)).displayPlayerHand(mockGame.getPlayerHand(), mockGame.getPlayerScore());
 	}
+	
+	@Test
+	public void shouldReturnTrueAndGameOver() {
+		sut = new PlayGame();
+		when(mockGame.isGameOver()).thenReturn(true);
+		
+		assertTrue(sut.play(mockView, mockGame));
+		verify(mockView, times(1)).displayGameOver(mockGame.isDealerWinner());
+	}
 }
