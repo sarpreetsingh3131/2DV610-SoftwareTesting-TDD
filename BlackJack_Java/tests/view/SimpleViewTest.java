@@ -57,21 +57,21 @@ public class SimpleViewTest {
 		sut.displayDealerHand(createSpyList(), score);
 		shouldCallAllMethods("Dealer", score);
 	}
-	
+
 	@Test
 	public void shouldDisplayGameOverAndDealerWon() {
-		sut.displayGameOver(true);
-	
-		verify(mockPrinter, times(1)).println("Game Over");
-		verify(mockPrinter, times(1)).println("Dealer Won!");
+		mustShowCorrectWinner(true, "Dealer");
 	}
-	
+
 	@Test
 	public void shouldDisplayGameOverAndPlayerWon() {
-		sut.displayGameOver(false);
-	
+		mustShowCorrectWinner(false, "Player");
+	}
+
+	private void mustShowCorrectWinner(boolean isDealerWon, String name) {
+		sut.displayGameOver(isDealerWon);
 		verify(mockPrinter, times(1)).println("Game Over");
-		verify(mockPrinter, times(1)).println("Player Won!");
+		verify(mockPrinter, times(1)).println(name + " Won!");
 	}
 
 	private ArrayList<Card> createSpyList() {
@@ -80,8 +80,8 @@ public class SimpleViewTest {
 		doReturn(mockCard).when(spyList).get(any(Integer.class));
 		return spyList;
 	}
-	
-	private void shouldCallAllMethods(String name, int score){
+
+	private void shouldCallAllMethods(String name, int score) {
 		verify(mockPrinter, times(1)).println(name + " has: ");
 		verify(mockPrinter, times(5)).println("Ace of Clubs");
 		verify(mockPrinter, times(1)).println("Score: " + score + "\n");

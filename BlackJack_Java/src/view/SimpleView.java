@@ -50,7 +50,8 @@ public class SimpleView {
 		printer.println("Game Over");
 		if (isDealerWon) {
 			printer.println("Dealer Won!");
+		} else {
+			printer.println("Player Won!");
 		}
-		printer.println("Player Won!");
 	}
 }
