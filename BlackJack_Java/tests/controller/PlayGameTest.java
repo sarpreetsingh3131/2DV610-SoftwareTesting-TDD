@@ -52,4 +52,13 @@ public class PlayGameTest {
 		verify(mockView, times(1)).getInput(mockInput);
 		verify(mockGame, times(1)).hit();
 	}
+	
+	@Test
+	public void shouldReturnTrueAndGetInputAndStand() {
+		when(mockView.getInput(mockInput)).thenReturn((int) 's');
+		
+		assertTrue(sut.play(mockView, mockGame, mockInput));
+		verify(mockView, times(1)).getInput(mockInput);
+		verify(mockGame, times(1)).stand();
+	}
 }
