@@ -70,5 +70,7 @@ public class SimpleView {
 
 	public void createNewView() {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < 50; i++)
+			printer.println();
 	}
 }
