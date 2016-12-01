@@ -68,7 +68,6 @@ public class Dealer extends Player {
 	}
 
 	public void setDealerList(ArrayList<Card> arrayList) {
-		// TODO Auto-generated method stub
-		m_hand = new ArrayList<Card>();
+		m_hand = arrayList;
 	}
 }
