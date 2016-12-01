@@ -16,6 +16,8 @@ public class PlayGame {
 		if (game.isGameOver()) {
 			view.displayGameOver(game.isDealerWinner());
 		}
+		view.getInput(input);
+		game.newGame();
 		return true;
 	}
 }
