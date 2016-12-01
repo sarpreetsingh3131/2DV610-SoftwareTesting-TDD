@@ -19,6 +19,7 @@ public class PlayGame {
 		if (in == 'p') {
 			game.newGame();
 		}
+		game.hit();
 		return true;
 	}
 }
