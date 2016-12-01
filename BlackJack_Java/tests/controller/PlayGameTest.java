@@ -1,9 +1,9 @@
 package controller;
 
-import org.junit.Test;
-import model.Game;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+import org.junit.*;
+import model.Game;
 import view.SimpleView;
 
 public class PlayGameTest {
@@ -12,10 +12,13 @@ public class PlayGameTest {
 	SimpleView mockView = mock(SimpleView.class);
 	Game mockGame = mock(Game.class);
 	
+	@Before
+	public void setUp() throws Exception {
+		sut = new PlayGame();
+	}
+	
 	@Test
 	public void shouldReturnTrueAndDisplayWelcomeMessageDealerAndPlayerHand() {
-		sut = new PlayGame();
-		
 		assertTrue(sut.play(mockView, mockGame));
 		verify(mockView, times(1)).displayWelcomeMessage();
 		verify(mockView, times(1)).displayDealerHand(mockGame.getDealerHand(), mockGame.getDealerScore());
@@ -24,7 +27,6 @@ public class PlayGameTest {
 	
 	@Test
 	public void shouldReturnTrueAndGameOver() {
-		sut = new PlayGame();
 		when(mockGame.isGameOver()).thenReturn(true);
 		
 		assertTrue(sut.play(mockView, mockGame));
