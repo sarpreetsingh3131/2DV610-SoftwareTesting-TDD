@@ -10,6 +10,8 @@ public class PlayGame {
 		
 		view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
 		view.displayPlayerHand(game.getPlayerHand(), game.getPlayerScore());
+	
+		view.displayGameOver(game.isDealerWinner());
 		
 		return true;
 	}
