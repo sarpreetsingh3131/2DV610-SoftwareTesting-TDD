@@ -7,6 +7,9 @@ public class PlayGame {
 
 	public boolean play(SimpleView view, Game game) {
 		// TODO Auto-generated method stub
-		return false;
+		view.displayWelcomeMessage();
+		view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
+		view.displayPlayerHand(game.getPlayerHand(), game.getPlayerScore());
+		return true;
 	}
 }
