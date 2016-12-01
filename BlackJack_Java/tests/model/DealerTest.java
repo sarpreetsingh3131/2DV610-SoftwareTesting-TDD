@@ -2,13 +2,9 @@ package model;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import org.junit.Before;
-import org.junit.Test;
-
-import model.rules.AmericanNewGameRule;
-import model.rules.BasicHitRule;
-import model.rules.DealerWinRule;
-import model.rules.RulesFactory;
+import java.util.ArrayList;
+import org.junit.*;
+import model.rules.*;
 
 public class DealerTest {
 
@@ -114,4 +110,11 @@ public class DealerTest {
 		verify((Player) spy, times(1)).showHand();
 		verify(mockHitRule, times(1)).doHit(spy);
 	}
+	
+	@Test
+	public void shouldSetDealerList() {
+		sut.setDealerList(new ArrayList<Card>());
+		assertNotNull(sut.getHand());
+	}
+	
 }

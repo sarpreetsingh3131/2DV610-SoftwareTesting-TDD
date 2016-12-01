@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-
 import model.Card.Value;
 
 public class Player {

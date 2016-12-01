@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 import model.rules.AmericanNewGameRule;
 import model.rules.BasicHitRule;
 import model.rules.DealerWinRule;
@@ -18,7 +20,7 @@ public class Dealer extends Player {
 		m_hitRule = a_factory.getHitRule();
 		m_newGameRule = a_factory.getNewGameRule();
 	}
-
+	
 	public boolean isDealerWinner(Player a_player) {
 		return m_winRule.isDealerWinner(a_player, this, g_maxScore);
 	}
@@ -63,5 +65,9 @@ public class Dealer extends Player {
 			return true;
 		}
 		return false;
+	}
+
+	public void setDealerList(ArrayList<Card> arrayList) {
+		// TODO Auto-generated method stub
 	}
 }
