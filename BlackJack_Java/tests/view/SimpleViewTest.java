@@ -5,11 +5,9 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 import java.io.*;
 import java.util.ArrayList;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import model.Card;
-import model.Card.Color;
-import model.Card.Value;
+import model.Card.*;
 
 public class SimpleViewTest {
 
@@ -86,6 +84,13 @@ public class SimpleViewTest {
 		verify(mockInput, times(1)).read();
 	}
 
+	@Test
+	public void shouldPrint50EmptyLines(){
+		sut.createNewView();
+		
+		verify(mockPrinter, times(50)).println();
+	}
+	
 	private void mustShowCorrectWinner(boolean isDealerWon, String name) {
 		sut.displayGameOver(isDealerWon);
 		verify(mockPrinter, times(1)).println("Game Over");

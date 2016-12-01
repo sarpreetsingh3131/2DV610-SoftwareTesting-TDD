@@ -67,4 +67,8 @@ public class SimpleView {
 			return 0;
 		}
 	}
+
+	public void createNewView() {
+		// TODO Auto-generated method stub
+	}
 }
