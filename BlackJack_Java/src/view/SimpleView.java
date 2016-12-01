@@ -58,7 +58,11 @@ public class SimpleView {
 
 	public int getInput(InputStream input) {
 		try {
-			return input.read();
+			char c = '\n';
+			while (c == '\n' || c == '\r') {
+				c = (char) input.read();
+			}
+			return c;
 		} catch (IOException e) {
 			return 0;
 		}

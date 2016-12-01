@@ -15,6 +15,7 @@ public class SimpleViewTest {
 
 	PrintStream mockPrinter = mock(PrintStream.class);
 	Card mockCard = mock(Card.class);
+	InputStream mockInput = mock(InputStream.class);
 	SimpleView sut;
 	SimpleView spy;
 
@@ -71,22 +72,20 @@ public class SimpleViewTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void shouldReturnZeroOnInputException() throws IOException {
-		InputStream mockInput = mock(InputStream.class);
 		when(mockInput.read()).thenThrow(IOException.class);
-		
+
 		assertEquals(0, sut.getInput(mockInput));
 		verify(mockInput, times(1)).read();
 	}
-	
+
 	@Test
-	public void shouldReturn112AsInputCharacter() throws IOException  {
-		InputStream mockInput = mock(InputStream.class);
+	public void shouldReturn112AsInputCharacter() throws IOException {
 		when(mockInput.read()).thenReturn((int) 'p');
-		
+
 		assertEquals(112, sut.getInput(mockInput));
 		verify(mockInput, times(1)).read();
 	}
-	
+
 	private void mustShowCorrectWinner(boolean isDealerWon, String name) {
 		sut.displayGameOver(isDealerWon);
 		verify(mockPrinter, times(1)).println("Game Over");
