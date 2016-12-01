@@ -15,15 +15,16 @@ public class PlayGame {
 		if (game.isGameOver()) {
 			view.displayGameOver(game.isDealerWinner());
 		}
-		
+
 		int in = view.getInput(input);
-		
+
 		if (in == 'p') {
 			game.newGame();
 		} else if (in == 'h') {
 			game.hit();
+		} else if (in == 's') {
+			game.stand();
 		}
-		game.stand();
 		return true;
 	}
 }

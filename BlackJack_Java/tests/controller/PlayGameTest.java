@@ -13,12 +13,12 @@ public class PlayGameTest {
 	SimpleView mockView = mock(SimpleView.class);
 	Game mockGame = mock(Game.class);
 	InputStream mockInput = mock(InputStream.class);
-	
+
 	@Before
 	public void setUp() throws Exception {
 		sut = new PlayGame();
 	}
-	
+
 	@Test
 	public void shouldReturnTrueAndDisplayWelcomeMessageDealerAndPlayerHand() {
 		assertTrue(sut.play(mockView, mockGame, mockInput));
@@ -26,39 +26,36 @@ public class PlayGameTest {
 		verify(mockView, times(1)).displayDealerHand(mockGame.getDealerHand(), mockGame.getDealerScore());
 		verify(mockView, times(1)).displayPlayerHand(mockGame.getPlayerHand(), mockGame.getPlayerScore());
 	}
-	
+
 	@Test
 	public void shouldReturnTrueAndGameOver() {
 		when(mockGame.isGameOver()).thenReturn(true);
-		
+
 		assertTrue(sut.play(mockView, mockGame, mockInput));
 		verify(mockView, times(1)).displayGameOver(mockGame.isDealerWinner());
 	}
-	
+
 	@Test
 	public void shouldReturnTrueAndGetInputAndPlayNewGame() {
-		when(mockView.getInput(mockInput)).thenReturn((int) 'p');
-		
-		assertTrue(sut.play(mockView, mockGame, mockInput));
-		verify(mockView, times(1)).getInput(mockInput);
+		userInput('p');
 		verify(mockGame, times(1)).newGame();
 	}
-	
+
 	@Test
 	public void shouldReturnTrueAndGetInputAndHit() {
-		when(mockView.getInput(mockInput)).thenReturn((int) 'h');
-		
-		assertTrue(sut.play(mockView, mockGame, mockInput));
-		verify(mockView, times(1)).getInput(mockInput);
+		userInput('h');
 		verify(mockGame, times(1)).hit();
 	}
-	
+
 	@Test
 	public void shouldReturnTrueAndGetInputAndStand() {
-		when(mockView.getInput(mockInput)).thenReturn((int) 's');
-		
+		userInput('s');
+		verify(mockGame, times(1)).stand();
+	}
+
+	private void userInput(char c) {
+		when(mockView.getInput(mockInput)).thenReturn((int) c);
 		assertTrue(sut.play(mockView, mockGame, mockInput));
 		verify(mockView, times(1)).getInput(mockInput);
-		verify(mockGame, times(1)).stand();
 	}
 }
