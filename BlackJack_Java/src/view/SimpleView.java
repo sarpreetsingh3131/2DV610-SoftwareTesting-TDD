@@ -58,10 +58,9 @@ public class SimpleView {
 
 	public int getInput(InputStream input) {
 		try {
-			input.read();
+			return input.read();
 		} catch (IOException e) {
 			return 0;
 		}
-		return -1;
 	}
 }
