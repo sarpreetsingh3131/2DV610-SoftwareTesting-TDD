@@ -78,6 +78,15 @@ public class SimpleViewTest {
 		verify(mockInput, times(1)).read();
 	}
 	
+	@Test
+	public void shouldReturn112AsInputCharacter() throws IOException  {
+		InputStream mockInput = mock(InputStream.class);
+		when(mockInput.read()).thenReturn((int) 'p');
+		
+		assertEquals(112, sut.getInput(mockInput));
+		verify(mockInput, times(1)).read();
+	}
+	
 	private void mustShowCorrectWinner(boolean isDealerWon, String name) {
 		sut.displayGameOver(isDealerWon);
 		verify(mockPrinter, times(1)).println("Game Over");
