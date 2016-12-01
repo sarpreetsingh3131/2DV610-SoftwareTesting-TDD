@@ -65,6 +65,14 @@ public class SimpleViewTest {
 		verify(mockPrinter, times(1)).println("Game Over");
 		verify(mockPrinter, times(1)).println("Dealer Won!");
 	}
+	
+	@Test
+	public void shouldDisplayGameOverAndPlayerWon() {
+		sut.displayGameOver(false);
+	
+		verify(mockPrinter, times(1)).println("Game Over");
+		verify(mockPrinter, times(1)).println("Player Won!");
+	}
 
 	private ArrayList<Card> createSpyList() {
 		ArrayList<Card> spyList = spy(new ArrayList<>());
