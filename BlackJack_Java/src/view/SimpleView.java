@@ -56,16 +56,12 @@ public class SimpleView {
 		}
 	}
 
-	public Object getInput(InputStream input) {
-		// TODO Auto-generated method stub
+	public int getInput(InputStream input) {
 		try {
 			input.read();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			return 0;
-	
 		}
-		return input;
-		
+		return -1;
 	}
 }
